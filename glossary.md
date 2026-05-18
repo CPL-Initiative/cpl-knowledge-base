@@ -64,7 +64,7 @@
 
 **Sprint** — Time-bounded, outcome-anchored campaign within the CPL initiative (Veteran Sprint, Apprenticeship Sprint, Statewide Credit Recommendations Sprint).
 
-**Tier — Leading / Advancing / Developing** — College-level CPL adoption tiers based on five public criteria (students served, eligible units, transcription rate, etc.).
+**Tier — Leading / Advancing / Inactive** — College-level CPL adoption tiers based on five public criteria (students served, eligible units, transcription rate, etc.).
 
 **Vision 2030** — California Community Colleges' overarching strategic plan; CPL Workplan is one of several Vision 2030 workplans.
 
