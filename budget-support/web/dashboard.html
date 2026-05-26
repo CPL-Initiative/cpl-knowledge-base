@@ -104,20 +104,37 @@ async function load() {
   document.getElementById("generate-actions").innerHTML = camps.map((c) => {
     const lbl = c.letter_type === "rc" ? "RC" : "College";
     return `
-      <a class="btn btn-primary" target="_blank"
-         href="${GENERATE_LETTER_URL}?mode=statewide&campaign=${encodeURIComponent(c.slug)}">
-         Statewide — ${escape(lbl)}
-      </a>
-      <a class="btn btn-primary" target="_blank"
-         href="${GENERATE_LETTER_URL}?mode=joint&campaign=${encodeURIComponent(c.slug)}">
-         Joint — ${escape(lbl)}
-      </a>
-      <a class="btn btn-secondary" target="_blank"
-         href="${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(c.slug)}">
-         Preview — ${escape(lbl)}
-      </a>
+      <button class="btn btn-primary" data-mode="statewide" data-slug="${c.slug}" data-lbl="${escape(lbl)}">Statewide — ${escape(lbl)}</button>
+      <button class="btn btn-primary" data-mode="joint"     data-slug="${c.slug}" data-lbl="${escape(lbl)}">Joint — ${escape(lbl)}</button>
+      <button class="btn btn-secondary" data-mode="preview"  data-slug="${c.slug}" data-lbl="${escape(lbl)}">Preview — ${escape(lbl)}</button>
     `;
   }).join("");
+  document.querySelectorAll("#generate-actions button").forEach((b) => {
+    b.addEventListener("click", async () => {
+      const orig = b.textContent;
+      b.disabled = true; b.textContent = "Generating…";
+      try {
+        await downloadDocx(
+          `${GENERATE_LETTER_URL}?mode=${b.dataset.mode}&campaign=${encodeURIComponent(b.dataset.slug)}`,
+          `CPL_${b.dataset.slug}_${b.dataset.mode}.docx`
+        );
+      } finally { b.disabled = false; b.textContent = orig; }
+    });
+  });
+}
+
+async function downloadDocx(url, filename) {
+  const res = await fetch(url, { headers: { apikey: SUPABASE_ANON }});
+  if (!res.ok) {
+    alert(`Download failed (HTTP ${res.status}): ${await res.text()}`);
+    return;
+  }
+  const blob = await res.blob();
+  const blobUrl = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = blobUrl; a.download = filename; document.body.appendChild(a);
+  a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
 }
 
 load().catch((e) => {

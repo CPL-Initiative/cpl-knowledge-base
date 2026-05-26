@@ -204,10 +204,18 @@ function wireForm() {
     $("decline-modal").style.display = "none";
   });
 
-  $("btn-preview").addEventListener("click", () => {
+  $("btn-preview").addEventListener("click", async () => {
     const params = new URLSearchParams(location.search);
     const token = params.get("t") || params.get("token") || "";
-    window.location.href = `${GENERATE_LETTER_URL}?mode=individual&token=${token}`;
+    const url = `${GENERATE_LETTER_URL}?mode=individual&token=${token}`;
+    const res = await fetch(url, { headers: { apikey: SUPABASE_ANON }});
+    if (!res.ok) { alert("Preview failed: HTTP " + res.status); return; }
+    const blob = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = blobUrl; a.download = `CPL_Budget_Support_${(INVITEE.org_slug || INVITEE.org_name || "letter").replace(/[^a-z0-9]+/gi,"_")}.docx`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
   });
 
   $("logo-drop").addEventListener("click", (e) => {
