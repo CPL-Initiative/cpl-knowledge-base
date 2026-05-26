@@ -158,7 +158,20 @@ To unlock writes in the curator UI:
 
 **Letter structure** (the surrounding scaffolding: date, addressees, subject line, signature lines) lives in `templates/template_*.docx`. Edit those in Word if you need to add a new paragraph; add a corresponding row in `letter_blocks` afterwards. After editing the docx, commit and push — the edge function fetches templates fresh from `raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/budget-support/templates/` on each cold start.
 
+**Signer name + title** for the statewide and joint letter modes are also `letter_blocks` rows (block_keys `signer_name` and `signer_title`). They show up as short text fields at the top of each scope group in the curator UI.
+
 See `docs/placeholders.md` for the full token reference.
+
+## Adding a new letter campaign
+
+Click **+ New Letter** in the curator (top-right). The new-letter page lets you:
+
+- Set campaign metadata (name, slug, letter type, subject line, deadline, ask amount)
+- Upload an existing DOCX — the page reads `word/document.xml` client-side and lists every paragraph; click a button to drop a paragraph into the matching block (`opening` / `rationale` / `stats` / etc.)
+- Or type each block directly into the textareas
+- Enter your curator passcode and submit — the new campaign appears in the curator dropdown immediately
+
+The new campaign reuses one of the two existing DOCX skeletons (RC- or college-style — date / addressees / subject line / signature scaffolding). If a future campaign needs entirely different recipients, drop a new `template_<slug>.docx` into `templates/` and extend the edge function to honor it.
 
 ## Roadmap (v1.1+)
 

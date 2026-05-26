@@ -66,11 +66,9 @@
     <h1>Letter Curator</h1>
     <div class="sub">Edit paragraph blocks for the CPL budget-support campaigns</div>
   </div>
-  <div>
-    <select id="campaign-select">
-      <option value="may-2026-revise-rc">RC Letter — May 2026 Revise</option>
-      <option value="may-2026-revise-college">College Letter — May 2026 Revise</option>
-    </select>
+  <div style="display:flex;gap:10px;align-items:center">
+    <select id="campaign-select"><option>Loading…</option></select>
+    <a href="./new-letter.html" class="btn btn-secondary" style="padding:6px 14px;font-size:0.9rem">+ New Letter</a>
   </div>
 </header>
 
@@ -140,7 +138,26 @@ async function downloadDocx(url, filename) {
   setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
 }
 
+async function loadCampaigns() {
+  try {
+    const res = await fetch(`${CURATOR_URL}?list=campaigns`, { headers: apiHeaders() });
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error ?? "list failed");
+    const opts = (j.campaigns ?? []).filter((c) => c.active).map((c) =>
+      `<option value="${c.slug}">${escape(c.name)} (${c.letter_type})</option>`
+    ).join("");
+    $("campaign-select").innerHTML = opts || `<option value="">(no campaigns)</option>`;
+    // Preserve selection if URL has ?campaign=, otherwise use the first
+    const wanted = new URLSearchParams(location.search).get("campaign");
+    if (wanted) $("campaign-select").value = wanted;
+    CAMPAIGN = $("campaign-select").value;
+  } catch (e) {
+    $("campaign-select").innerHTML = `<option>load error: ${escape(String(e?.message ?? e))}</option>`;
+  }
+}
+
 async function loadBlocks() {
+  if (!CAMPAIGN) { $("blocks-container").innerHTML = `<p class="muted">No campaign selected.</p>`; return; }
   $("blocks-container").innerHTML = `<p class="muted">Loading…</p>`;
   try {
     const res = await fetch(`${CURATOR_URL}?campaign=${encodeURIComponent(CAMPAIGN)}`, { headers: apiHeaders() });
@@ -158,8 +175,10 @@ async function loadBlocks() {
 }
 
 function render() {
-  // Group by scope, then sort blocks within each scope by a fixed order
-  const ORDER = ["opening","rationale","stats","institution","example","ask","cta"];
+  // Group by scope, then sort blocks within each scope by a fixed order.
+  // signer_name + signer_title appear at the top since they're the most
+  // commonly tweaked fields and are short single-line values.
+  const ORDER = ["signer_name","signer_title","opening","rationale","stats","institution","example","ask","cta"];
   const byScope = {};
   for (const b of BLOCKS) {
     (byScope[b.scope] = byScope[b.scope] || []).push(b);
@@ -172,26 +191,32 @@ function render() {
   $("blocks-container").innerHTML = scopes.map((scope) => `
     <div class="scope-group">
       <h2>Scope: <code>${scope}</code></h2>
-      ${byScope[scope].map((b) => `
+      ${byScope[scope].map((b) => {
+        const isShort = b.block_key === "signer_name" || b.block_key === "signer_title";
+        const field = isShort
+          ? `<input type="text" value="${escape(b.content)}" style="width:100%;padding:10px 12px;font:inherit;border:1px solid var(--map-border);border-radius:4px">`
+          : `<textarea>${escape(b.content)}</textarea>`;
+        return `
         <div class="block-editor" data-key="${b.block_key}" data-scope="${b.scope}">
           <div class="block-meta">
             <h3>${b.block_key}<span class="scope-tag ${b.scope}">${b.scope}</span></h3>
             <span class="muted" style="font-size:0.8rem">updated ${new Date(b.updated_at).toLocaleString()}</span>
           </div>
-          <textarea>${escape(b.content)}</textarea>
+          ${field}
           <div class="block-actions">
             <button class="btn btn-primary save-btn" data-key="${b.block_key}" data-scope="${b.scope}" disabled>Save</button>
             ${b.scope !== "all" ? `<button class="btn btn-danger reset-btn" data-key="${b.block_key}" data-scope="${b.scope}">Reset to default (scope=all)</button>` : ""}
             <button class="btn btn-secondary history-btn" data-key="${b.block_key}" data-scope="${b.scope}">History</button>
           </div>
         </div>
-      `).join("")}
+      `;}).join("")}
     </div>
   `).join("");
 
-  // Wire up textareas to enable Save button when changed
+  // Wire up text inputs to enable Save button when changed
   document.querySelectorAll(".block-editor").forEach((ed) => {
-    const ta = ed.querySelector("textarea");
+    const ta = ed.querySelector("textarea, input[type=text]");
+    if (!ta) return;
     const orig = ta.value;
     const saveBtn = ed.querySelector(".save-btn");
     ta.addEventListener("input", () => {
@@ -254,11 +279,6 @@ async function showHistory(blockKey, scope) {
   alert(lines.length ? lines.join("\n\n") : "No prior versions.");
 }
 
-$("campaign-select").addEventListener("change", (e) => {
-  CAMPAIGN = e.target.value;
-  updateDownloadLinks();
-  loadBlocks();
-});
 $("auth-btn").addEventListener("click", () => {
   PASSCODE = $("passcode").value.trim();
   if (PASSCODE) sessionStorage.setItem("curator_pass", PASSCODE);
@@ -279,7 +299,16 @@ function updateDownloadLinks() {
 }
 
 updateDownloadLinks();
-loadBlocks();
+(async () => {
+  await loadCampaigns();
+  // Wire campaign-select after the options are populated.
+  $("campaign-select").addEventListener("change", (e) => {
+    CAMPAIGN = e.target.value;
+    updateDownloadLinks();
+    loadBlocks();
+  });
+  await loadBlocks();
+})();
 </script>
 </body>
 </html>

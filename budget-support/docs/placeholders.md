@@ -18,8 +18,14 @@ replaces at letter-generation time. If a key has no value, it renders as
 | `{{EXAMPLE_NARRATIVE}}` | `responses.regional_example` |
 | `{{OUTCOME}}` | hard-coded narrative phrase (overridable later) |
 | `{{EXPANSION}}` | unused on per-invitee letters; filled on joint letters |
-| `{{SIGNER_NAME}}` | `responses.signer_name_confirmed`, falling back to `invitees.signer_name` |
-| `{{SIGNER_TITLE}}` | same |
+| `{{SIGNER_NAME}}` | `responses.signer_name_confirmed`, fallback `invitees.signer_name`, fallback `letter_blocks` row with `block_key='signer_name'` |
+| `{{SIGNER_TITLE}}` | same chain with `block_key='signer_title'` |
+
+Signer name + title for the statewide and joint letter modes are stored as
+`letter_blocks` rows (block_key = `signer_name` / `signer_title`, scope =
+`statewide` or `joint`) and are editable in the curator UI alongside the
+paragraph blocks. Per-invitee individual letters still use the invitee's
+own confirmed name when present.
 
 ## Statewide (filled from `live_metrics.json` on each generation)
 
