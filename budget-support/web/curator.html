@@ -106,7 +106,7 @@
 <footer class="foot">CPL Project Tracker • Letter curator</footer>
 
 <script type="module">
-import { CURATOR_URL, GENERATE_LETTER_URL } from "./config.js";
+import { CURATOR_URL, GENERATE_LETTER_URL, SUPABASE_ANON } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
 let CAMPAIGN = "may-2026-revise-rc";
@@ -115,16 +115,46 @@ let BLOCKS = []; // current loaded blocks
 
 function escape(s) { return String(s ?? "").replace(/[&<>]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
 
-async function loadBlocks() {
-  $("blocks-container").innerHTML = `<p class="muted">Loading…</p>`;
-  const res = await fetch(`${CURATOR_URL}?campaign=${encodeURIComponent(CAMPAIGN)}`);
-  const j = await res.json();
+// All edge-function calls need the publishable key for Supabase's gateway,
+// even when verify_jwt is off. Write calls additionally need the curator
+// passcode in Authorization.
+function apiHeaders(write = false) {
+  const h = { apikey: SUPABASE_ANON };
+  if (write && PASSCODE) h["Authorization"] = `Bearer ${PASSCODE}`;
+  return h;
+}
+
+// DOCX downloads bypass the gateway via a JS fetch (so we can attach the
+// apikey header), then trigger a Save-As via a blob URL.
+async function downloadDocx(url, filename) {
+  const res = await fetch(url, { headers: { apikey: SUPABASE_ANON }});
   if (!res.ok) {
-    $("blocks-container").innerHTML = `<div class="status-banner error">${escape(j.error)}</div>`;
+    alert(`Download failed (HTTP ${res.status}): ${await res.text()}`);
     return;
   }
-  BLOCKS = j.blocks ?? [];
-  render();
+  const blob = await res.blob();
+  const blobUrl = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = blobUrl; a.download = filename; document.body.appendChild(a);
+  a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+}
+
+async function loadBlocks() {
+  $("blocks-container").innerHTML = `<p class="muted">Loading…</p>`;
+  try {
+    const res = await fetch(`${CURATOR_URL}?campaign=${encodeURIComponent(CAMPAIGN)}`, { headers: apiHeaders() });
+    const text = await res.text();
+    let j; try { j = JSON.parse(text); } catch { j = { error: text }; }
+    if (!res.ok) {
+      $("blocks-container").innerHTML = `<div class="status-banner error">HTTP ${res.status}: ${escape(j.error ?? text)}</div>`;
+      return;
+    }
+    BLOCKS = j.blocks ?? [];
+    render();
+  } catch (e) {
+    $("blocks-container").innerHTML = `<div class="status-banner error">${escape(String(e?.message ?? e))}</div>`;
+  }
 }
 
 function render() {
@@ -190,7 +220,7 @@ async function save(blockKey, scope, content) {
   if (!PASSCODE) { alert("Enter curator passcode first."); return; }
   const res = await fetch(CURATOR_URL, {
     method: "PUT",
-    headers: { "Authorization": `Bearer ${PASSCODE}`, "Content-Type": "application/json" },
+    headers: { ...apiHeaders(true), "Content-Type": "application/json" },
     body: JSON.stringify({ campaign_slug: CAMPAIGN, block_key: blockKey, scope, content, updated_by: "curator-ui" }),
   });
   const j = await res.json();
@@ -203,7 +233,7 @@ async function reset(blockKey, scope) {
   if (!confirm(`Delete the ${scope}-scope override for "${blockKey}"? The letter will fall back to the scope=all content.`)) return;
   const res = await fetch(CURATOR_URL, {
     method: "DELETE",
-    headers: { "Authorization": `Bearer ${PASSCODE}`, "Content-Type": "application/json" },
+    headers: { ...apiHeaders(true), "Content-Type": "application/json" },
     body: JSON.stringify({ campaign_slug: CAMPAIGN, block_key: blockKey, scope }),
   });
   const j = await res.json();
@@ -213,7 +243,8 @@ async function reset(blockKey, scope) {
 
 async function showHistory(blockKey, scope) {
   const res = await fetch(
-    `${CURATOR_URL}?campaign=${encodeURIComponent(CAMPAIGN)}&block_key=${encodeURIComponent(blockKey)}&scope=${encodeURIComponent(scope)}&history`
+    `${CURATOR_URL}?campaign=${encodeURIComponent(CAMPAIGN)}&block_key=${encodeURIComponent(blockKey)}&scope=${encodeURIComponent(scope)}&history`,
+    { headers: apiHeaders() }
   );
   const j = await res.json();
   const lines = (j.history ?? []).map((h) =>
@@ -235,8 +266,16 @@ $("auth-btn").addEventListener("click", () => {
 });
 
 function updateDownloadLinks() {
-  $("download-current").href   = `${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(CAMPAIGN)}`;
-  $("download-statewide").href = `${GENERATE_LETTER_URL}?mode=statewide&campaign=${encodeURIComponent(CAMPAIGN)}`;
+  $("download-current").onclick = (e) => {
+    e.preventDefault();
+    downloadDocx(`${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(CAMPAIGN)}`,
+                 `CPL_${CAMPAIGN}_preview.docx`);
+  };
+  $("download-statewide").onclick = (e) => {
+    e.preventDefault();
+    downloadDocx(`${GENERATE_LETTER_URL}?mode=statewide&campaign=${encodeURIComponent(CAMPAIGN)}`,
+                 `CPL_${CAMPAIGN}_statewide.docx`);
+  };
 }
 
 updateDownloadLinks();
