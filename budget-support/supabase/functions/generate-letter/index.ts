@@ -120,15 +120,28 @@ function xmlEscape(s: string): string {
     .replace(/>/g, "&gt;");
 }
 
+// Block content may include newlines (curators sometimes hit Enter inside a
+// textarea). A bare \n inside <w:t> is invalid OOXML and Word complains with
+// "found unreadable content". Convert each \n into a closing </w:t>, a
+// <w:br/> soft break, and a fresh <w:t xml:space="preserve"> so the resulting
+// paragraph stays valid while preserving the line break visually.
+function xmlEscapeParagraph(s: string): string {
+  return xmlEscape(s).replace(
+    /\r?\n/g,
+    '</w:t><w:br/><w:t xml:space="preserve">'
+  );
+}
+
 // Two-phase fill: first expand {{P_<KEY>}} from blocks (which may themselves
 // contain inline {{TOKEN}}s), then expand inline tokens from vars.
 function fill(xml: string, blocks: Blocks, vars: Record<string, string>): string {
-  // Phase 1: paragraph-level blocks
+  // Phase 1: paragraph-level blocks. Use xmlEscapeParagraph so newlines in
+  // block content become valid <w:br/> elements instead of bare \n inside <w:t>.
   let out = xml.replace(/\{\{P_([A-Z_0-9]+)\}\}/g, (_, k) => {
     const key = k.toLowerCase();
     const v = blocks[key];
     if (v === undefined || v === null || v === "") return `[___ ${key} block missing ___]`;
-    return xmlEscape(v);
+    return xmlEscapeParagraph(v);
   });
   // Phase 2: inline tokens (these may have been introduced by phase 1)
   out = out.replace(/\{\{([A-Z_0-9]+)\}\}/g, (_, k) => {
@@ -249,8 +262,8 @@ async function buildJoint(slug: string): Promise<Response> {
     EXPANSION:         "expanding faculty evaluation capacity, counseling and outreach, technology infrastructure, and regional industry alignment",
     EXAMPLE_NARRATIVE: signatoriesBlock,
     OUTCOME:           "complete their educational goals more efficiently while advancing California's workforce and economic priorities",
-    SIGNER_NAME:       lines.length === 0 ? "[Signatories pending]" : `Submitted on behalf of ${lines.length} signatories`,
-    SIGNER_TITLE:      "See signatory schedule attached",
+    SIGNER_NAME:       blocks.signer_name  ?? (lines.length === 0 ? "[Signatories pending]" : `Submitted on behalf of ${lines.length} signatories`),
+    SIGNER_TITLE:      blocks.signer_title ?? "See signatory schedule attached",
     ...metrics,
   };
 
@@ -278,8 +291,8 @@ async function buildStatewide(slug: string): Promise<Response> {
     EXPANSION:         "",
     EXAMPLE_NARRATIVE: "",
     OUTCOME:           "",
-    SIGNER_NAME:       "[Signer Name]",
-    SIGNER_TITLE:      "[Signer Title]",
+    SIGNER_NAME:       blocks.signer_name  ?? "[Signer Name]",
+    SIGNER_TITLE:      blocks.signer_title ?? "[Signer Title]",
     ...metrics,
   };
   const docx = await renderTemplate(camp.letter_type, blocks, vars);

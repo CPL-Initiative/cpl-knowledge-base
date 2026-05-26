@@ -5,10 +5,14 @@
 // Reads are public — the same blocks are used at letter generation time and
 // are already visible via letter_blocks_public.
 //
-//   GET  ?campaign=<slug>                          → all blocks for the campaign
-//   GET  ?campaign=<slug>&block_key=<key>&history  → history rows for that block
-//   PUT  body: { campaign_slug, block_key, scope, content }   → upsert a block
-//   DELETE body: { campaign_slug, block_key, scope }          → delete (revert to default)
+//   GET    ?campaign=<slug>                          → all blocks for the campaign
+//   GET    ?campaign=<slug>&block_key=<key>&history  → history rows for that block
+//   GET    ?list=campaigns                           → list every active campaign
+//   PUT    body: { campaign_slug, block_key, scope, content }   → upsert a block
+//   DELETE body: { campaign_slug, block_key, scope }            → delete (revert)
+//   POST   body: { name, slug, letter_type, subject_line, deadline?, ask_amount?,
+//                  blocks: [{ block_key, scope, content }, ...] }
+//                                                     → create new campaign + bulk-seed blocks
 //
 // To rotate the passcode, set CURATOR_PASSCODE in Supabase Studio →
 // Project Settings → Edge Functions → Secrets.
@@ -27,7 +31,7 @@ const sb = createClient(SUPABASE_URL, SERVICE_ROLE, {
 const CORS = {
   "Access-Control-Allow-Origin":  "*",
   "Access-Control-Allow-Headers": "authorization, content-type, apikey",
-  "Access-Control-Allow-Methods": "GET, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 };
 
 function json(data: unknown, status = 200): Response {
@@ -51,6 +55,16 @@ async function campaignId(slug: string): Promise<string | null> {
 }
 
 async function handleGet(url: URL): Promise<Response> {
+  // List all campaigns (used by the curator dropdown).
+  if (url.searchParams.get("list") === "campaigns") {
+    const { data, error } = await sb
+      .from("campaigns")
+      .select("slug, name, letter_type, deadline, active")
+      .order("created_at", { ascending: false });
+    if (error) return json({ error: error.message }, 500);
+    return json({ campaigns: data ?? [] });
+  }
+
   const slug = url.searchParams.get("campaign");
   if (!slug) return json({ error: "campaign required" }, 400);
 
@@ -134,11 +148,70 @@ async function handleDelete(req: Request): Promise<Response> {
   return json({ deleted: true });
 }
 
+async function handlePost(req: Request): Promise<Response> {
+  const err = requireAuth(req);
+  if (err) return json({ error: err }, 401);
+  const body = await req.json().catch(() => null);
+  if (!body) return json({ error: "invalid JSON" }, 400);
+
+  const { name, slug, letter_type, subject_line, deadline, ask_amount, blocks } = body;
+  if (!name || !slug || !letter_type || !subject_line) {
+    return json({ error: "name, slug, letter_type, subject_line required" }, 400);
+  }
+  if (!["rc","college"].includes(letter_type)) {
+    return json({ error: "letter_type must be 'rc' or 'college'" }, 400);
+  }
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) {
+    return json({ error: "slug must be lowercase alphanumerics + hyphens (e.g. 'fy27-budget-rc')" }, 400);
+  }
+
+  // Create the campaign
+  const { data: camp, error: e1 } = await sb
+    .from("campaigns")
+    .insert({
+      name,
+      slug,
+      letter_type,
+      subject_line,
+      deadline: deadline || null,
+      ask_amount: ask_amount || "$XXM",
+      active: true,
+    })
+    .select()
+    .single();
+  if (e1) {
+    if (String(e1.message).includes("duplicate")) {
+      return json({ error: `slug '${slug}' already exists` }, 409);
+    }
+    return json({ error: e1.message }, 500);
+  }
+
+  // Bulk-seed blocks if any were provided.
+  if (Array.isArray(blocks) && blocks.length > 0) {
+    const rows = blocks
+      .filter((b: any) => b && b.block_key && typeof b.content === "string" && b.content.trim().length > 0)
+      .map((b: any) => ({
+        campaign_id: camp.id,
+        block_key:   String(b.block_key),
+        scope:       (b.scope && ["all","individual","joint","statewide"].includes(b.scope)) ? b.scope : "all",
+        content:     String(b.content),
+        updated_by:  "new-campaign",
+      }));
+    if (rows.length > 0) {
+      const { error: e2 } = await sb.from("letter_blocks").insert(rows);
+      if (e2) return json({ campaign: camp, blocks_error: e2.message }, 207);
+    }
+  }
+
+  return json({ campaign: camp });
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   const url = new URL(req.url);
   try {
     if (req.method === "GET")    return await handleGet(url);
+    if (req.method === "POST")   return await handlePost(req);
     if (req.method === "PUT")    return await handlePut(req);
     if (req.method === "DELETE") return await handleDelete(req);
     return json({ error: "method not allowed" }, 405);
