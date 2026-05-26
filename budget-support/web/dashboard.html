@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPL Budget Support — Status</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="brand">
+  <div>
+    <h1>CPL Budget Support — Endorsement Status</h1>
+    <div class="sub">May 2026 Revise • $37M Credit for Prior Learning ask</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="ask-box">
+    <div>Asking the California Legislature to fund</div>
+    <div class="amount">$37 million in CPL</div>
+    <div class="breakdown">
+      $2M ongoing — CPL infrastructure operations &nbsp;•&nbsp;
+      $35M one-time — local college CPL implementation &amp; innovation
+    </div>
+  </div>
+
+  <div id="campaigns"></div>
+
+  <div class="card">
+    <h2>Recent endorsements</h2>
+    <div id="recent"></div>
+  </div>
+
+  <div class="card">
+    <h2>Generate the joint letter</h2>
+    <p class="muted">The joint letter pulls in every "supported" signatory in real time, plus current statewide stats from the
+       <a href="https://cpl-initiative.github.io/cpl-project-tracker/" target="_blank">CPL Project Tracker</a>.</p>
+    <div class="actions" id="generate-actions"></div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  CPL Project Tracker • Public endorsement dashboard
+</footer>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import { SUPABASE_URL, SUPABASE_ANON, GENERATE_LETTER_URL } from "./config.js";
+
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON, { auth: { persistSession: false }});
+
+function escape(s) { return String(s ?? "").replace(/[&<>]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+async function load() {
+  const { data: camps, error } = await sb.from("campaign_summary_public").select("*").order("name");
+  if (error) {
+    document.getElementById("campaigns").innerHTML = `<div class="status-banner error">${escape(error.message)}</div>`;
+    return;
+  }
+
+  const tiles = camps.map((c) => {
+    const total = Math.max(c.total_invited, 1);
+    const pct = Math.round((c.supported_count / total) * 100);
+    return `
+      <div class="tile">
+        <h3>${escape(c.name)}</h3>
+        <div class="counts">
+          <span class="num">${c.supported_count}</span> of ${c.total_invited} endorsed
+          &nbsp;•&nbsp; ${c.pending_count} pending
+          &nbsp;•&nbsp; ${c.declined_count} declined
+        </div>
+        <div class="bar"><div style="width:${pct}%"></div></div>
+        <div class="counts" style="font-size:0.85rem">
+          ${c.last_supported_at ? "Last endorsement: " + new Date(c.last_supported_at).toLocaleString() : "No endorsements yet"}
+          ${c.deadline ? "&nbsp;•&nbsp; Deadline: " + new Date(c.deadline).toLocaleDateString() : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+  document.getElementById("campaigns").innerHTML = tiles;
+
+  const { data: recent } = await sb.from("signatories_public")
+    .select("*").order("submitted_at", { ascending: false }).limit(20);
+  document.getElementById("recent").innerHTML = recent && recent.length
+    ? recent.map((s) => `
+        <div style="padding:8px 0;border-bottom:1px solid var(--map-border)">
+          <strong>${escape(s.org_name)}</strong>
+          ${s.region ? `<span class="muted"> (${escape(s.region)})</span>` : ""}
+          ${s.signer_name ? `<div class="muted">${escape(s.signer_name)}${s.signer_title ? ", " + escape(s.signer_title) : ""}</div>` : ""}
+          <div class="muted" style="font-size:0.85rem">${new Date(s.submitted_at).toLocaleString()}</div>
+        </div>
+      `).join("")
+    : `<p class="muted">No endorsements yet. Share your invitation links to get the first signatures in.</p>`;
+
+  document.getElementById("generate-actions").innerHTML = camps.map((c) => `
+    <a class="btn btn-primary" target="_blank"
+       href="${GENERATE_LETTER_URL}?mode=joint&campaign=${encodeURIComponent(c.slug)}">
+       Joint letter — ${escape(c.letter_type === "rc" ? "RC" : "College")}
+    </a>
+    <a class="btn btn-secondary" target="_blank"
+       href="${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(c.slug)}">
+       Template preview — ${escape(c.letter_type === "rc" ? "RC" : "College")}
+    </a>
+  `).join("");
+}
+
+load().catch((e) => {
+  console.error(e);
+  document.getElementById("campaigns").innerHTML = `<div class="status-banner error">${escape(e.message)}</div>`;
+});
+</script>
+</body>
+</html>

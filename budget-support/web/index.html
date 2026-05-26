@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPL Budget Support — Endorsement</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="brand">
+  <div>
+    <h1>Credit for Prior Learning — Budget Support</h1>
+    <div class="sub">California Community Colleges • MAP Initiative</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div id="loading" class="card">
+    <p class="muted">Loading your endorsement form…</p>
+  </div>
+
+  <div id="invalid" class="card" style="display:none">
+    <h2>Invalid or expired link</h2>
+    <p>This endorsement link is not recognized. If you believe you received this in error,
+       please reply to the email you received or contact
+       <a href="mailto:MAP@rccd.edu">MAP@rccd.edu</a>.</p>
+  </div>
+
+  <div id="already" class="status-banner success" style="display:none">
+    Thank you — your endorsement was recorded on
+    <span id="already-when"></span>. You can update your details below if needed.
+  </div>
+
+  <div id="declined-banner" class="status-banner info" style="display:none">
+    You previously declined this endorsement. You can change your response below if your situation has changed.
+  </div>
+
+  <section id="app" style="display:none">
+
+    <div class="ask-box">
+      <div>The May 2026 Revise CPL funding request:</div>
+      <div class="amount">$37 million</div>
+      <div class="breakdown">
+        $2M ongoing — CPL infrastructure operations &nbsp;•&nbsp;
+        $35M one-time — local college CPL implementation &amp; innovation projects
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>You're being asked to endorse this letter</h2>
+      <p>You've been invited as the contact for <strong id="org-name"></strong>
+         <span id="org-region-line"></span>.
+         Your endorsement adds your organization to a joint letter to the Senate &amp; Assembly Budget
+         Chairs, and also produces an individual letter on your letterhead that you can submit directly.</p>
+      <p class="muted">Below is the letter you'd be endorsing, with statewide numbers from the
+         <a href="https://cpl-initiative.github.io/cpl-project-tracker/" target="_blank">CPL Project Tracker</a>
+         already filled in. A few blanks remain for you to personalize.</p>
+    </div>
+
+    <div class="card">
+      <h2>Personalize your letter</h2>
+      <p class="muted">All fields optional. Anything you leave blank will appear as <code>[___]</code> in your individual letter so you can complete it offline.</p>
+      <form id="response-form" autocomplete="off">
+
+        <div class="row">
+          <div class="field">
+            <label for="signer_name_confirmed">Your name</label>
+            <input type="text" id="signer_name_confirmed" name="signer_name_confirmed">
+          </div>
+          <div class="field">
+            <label for="signer_title_confirmed">Your title</label>
+            <input type="text" id="signer_title_confirmed" name="signer_title_confirmed">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="units_awarded">CPL units awarded to date</label>
+            <div class="hint">e.g. "3,500" or "approximately 1,200 since 2022"</div>
+            <input type="text" id="units_awarded" name="units_awarded">
+          </div>
+          <div class="field">
+            <label for="students_served">Students served via CPL</label>
+            <div class="hint">e.g. "1,200" or "more than 600 veterans"</div>
+            <input type="text" id="students_served" name="students_served">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="programs">Programs where CPL has been most impactful</label>
+          <div class="hint">e.g. "Administration of Justice, Early Childhood Education, Welding, Allied Health"</div>
+          <input type="text" id="programs" name="programs">
+        </div>
+
+        <div class="field">
+          <label for="regional_example">A specific example of CPL's impact</label>
+          <div class="hint">1–3 sentences. e.g. a veteran who saved 18 months, an apprentice cohort that completed faster, etc.</div>
+          <textarea id="regional_example" name="regional_example"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="custom_notes">Why CPL matters at your institution / in your region</label>
+          <div class="hint">1–2 sentences. Optional.</div>
+          <textarea id="custom_notes" name="custom_notes"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Organization logo (for the joint letter footer)</label>
+          <div class="hint">PNG, JPG, SVG, or WEBP. Max 2 MB. Optional — leave blank if you'd prefer no logo.</div>
+          <label class="logo-drop" id="logo-drop">
+            <input type="file" id="logo-input" accept="image/png,image/jpeg,image/svg+xml,image/webp" style="display:none">
+            <div id="logo-prompt">Click to upload a logo</div>
+            <img id="logo-preview" style="display:none" alt="">
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary" id="btn-support">
+            ✓ Endorse this letter
+          </button>
+          <button type="button" class="btn btn-secondary" id="btn-preview">
+            Preview my letter (DOCX)
+          </button>
+          <button type="button" class="btn btn-danger" id="btn-decline">
+            Decline
+          </button>
+        </div>
+
+        <p class="muted" style="margin-top:14px">
+          By endorsing, you authorize MAP@rccd.edu to include your organization's name and (if uploaded) logo
+          on a joint letter to the California Senate &amp; Assembly Budget Chairs. You can change or withdraw
+          your response any time using this link.
+        </p>
+
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Letter preview</h2>
+      <p class="muted">This is what your individual letter will look like. Your inputs above are highlighted; statewide numbers come from the live project-tracker dashboard.</p>
+      <div class="letter-preview" id="preview"></div>
+    </div>
+
+  </section>
+
+  <div id="decline-modal" class="card" style="display:none">
+    <h2>Decline endorsement</h2>
+    <p>If you can share a quick reason, it helps us improve future requests. Optional.</p>
+    <div class="field">
+      <textarea id="decline_reason" placeholder="e.g. timing, internal approval process, prefer a separate letter, etc."></textarea>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-danger" id="btn-decline-confirm">Confirm decline</button>
+      <button type="button" class="btn btn-secondary" id="btn-decline-cancel">Cancel</button>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  CPL Project Tracker • Endorsement portal •
+  <a href="https://cpl-initiative.github.io/cpl-project-tracker/" target="_blank">Project dashboard</a>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
