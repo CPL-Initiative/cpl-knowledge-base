@@ -34,10 +34,16 @@
   </div>
 
   <div class="card">
-    <h2>Generate the joint letter</h2>
-    <p class="muted">The joint letter pulls in every "supported" signatory in real time, plus current statewide stats from the
-       <a href="https://cpl-initiative.github.io/cpl-project-tracker/" target="_blank">CPL Project Tracker</a>.</p>
+    <h2>Generate a letter</h2>
+    <p class="muted">All letters draw from the live <a href="./curator.html">curated paragraph blocks</a> and the current statewide stats on the
+       <a href="https://cpl-initiative.github.io/cpl-project-tracker/" target="_blank">CPL Project Tracker</a> at the moment of generation.</p>
+    <ul class="muted" style="font-size:0.9rem">
+      <li><strong>Statewide</strong> — single-author letter from the CPL Initiative at the Chancellor's Office.</li>
+      <li><strong>Joint</strong> — consolidated letter listing every "supported" signatory so far.</li>
+      <li><strong>Preview</strong> — current template with statewide stats only (signer fields blank).</li>
+    </ul>
     <div class="actions" id="generate-actions"></div>
+    <p style="margin-top:14px"><a href="./curator.html" class="btn btn-secondary">→ Edit letter copy (curator)</a></p>
   </div>
 
 </main>
@@ -95,16 +101,23 @@ async function load() {
       `).join("")
     : `<p class="muted">No endorsements yet. Share your invitation links to get the first signatures in.</p>`;
 
-  document.getElementById("generate-actions").innerHTML = camps.map((c) => `
-    <a class="btn btn-primary" target="_blank"
-       href="${GENERATE_LETTER_URL}?mode=joint&campaign=${encodeURIComponent(c.slug)}">
-       Joint letter — ${escape(c.letter_type === "rc" ? "RC" : "College")}
-    </a>
-    <a class="btn btn-secondary" target="_blank"
-       href="${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(c.slug)}">
-       Template preview — ${escape(c.letter_type === "rc" ? "RC" : "College")}
-    </a>
-  `).join("");
+  document.getElementById("generate-actions").innerHTML = camps.map((c) => {
+    const lbl = c.letter_type === "rc" ? "RC" : "College";
+    return `
+      <a class="btn btn-primary" target="_blank"
+         href="${GENERATE_LETTER_URL}?mode=statewide&campaign=${encodeURIComponent(c.slug)}">
+         Statewide — ${escape(lbl)}
+      </a>
+      <a class="btn btn-primary" target="_blank"
+         href="${GENERATE_LETTER_URL}?mode=joint&campaign=${encodeURIComponent(c.slug)}">
+         Joint — ${escape(lbl)}
+      </a>
+      <a class="btn btn-secondary" target="_blank"
+         href="${GENERATE_LETTER_URL}?mode=preview&campaign=${encodeURIComponent(c.slug)}">
+         Preview — ${escape(lbl)}
+      </a>
+    `;
+  }).join("");
 }
 
 load().catch((e) => {

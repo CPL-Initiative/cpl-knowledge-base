@@ -8,11 +8,12 @@ This bundle was staged from a Claude Code on the web session (cross-repo write a
 
 | Component | Where | Status |
 | --- | --- | --- |
-| Postgres schema + RLS + RPCs | Supabase project `cpl-budget-support` (`mdxutmbpoqjtdcwjscux`, us-west-1) | **Live** |
+| Postgres schema + RLS + RPCs + letter_blocks curator | Supabase project `cpl-budget-support` (`mdxutmbpoqjtdcwjscux`, us-west-1) | **Live** |
 | `logos` and `templates` Storage buckets | Same project | **Live** |
-| Edge function `generate-letter` | Same project, public (no JWT) | **Live (v1)** |
-| Two seeded campaigns (RC + College, deadline 2026-06-15) | Same project | **Live** |
-| Letter templates (placeholder DOCX) | `budget-support/templates/` in this repo | **Live** — edge function fetches from `main` |
+| Edge function `generate-letter` (4 modes) | Same project, public (no JWT) | **Live (v2)** |
+| Edge function `letter-curator` (read public, write passcode-gated) | Same project | **Live (v1)** |
+| Two seeded campaigns (RC + College, deadline 2026-06-15) + 19 paragraph blocks | Same project | **Live** |
+| Letter templates (`{{P_<KEY>}}` scaffolding) | `budget-support/templates/` in this repo | **Live** — edge function fetches from `main` |
 | Invitee endorsement page (`web/index.html`) | Not yet hosted | **Built, needs hosting** |
 | Public status dashboard (`web/dashboard.html`) | Not yet hosted | **Built, needs hosting** |
 | Embeddable tracker tile (`web/tile.html`) | Not yet embedded | **Built, needs embedding** |
@@ -147,9 +148,17 @@ When you're ready to upgrade to transactional email (Resend / Postmark / SendGri
 
 ## Editing the letters
 
-The two `templates/template_*.docx` files in this repo are the source of truth for both the personalized and joint letters. Open them in Word; placeholders look like `{{ORG_NAME}}`, `{{UNITS_AWARDED}}`, `{{SW_STUDENTS}}` etc. (See `docs/placeholders.md`.)
+**Letter copy** lives in the `letter_blocks` table and is curated through the **letter curator** UI (`web/curator.html`) or directly via SQL. Each paragraph of the letter is a `block` keyed by name (`opening`, `rationale`, `stats`, `institution`, `example`, `ask`, `cta`) and `scope` (`all` = default; `individual`/`joint`/`statewide` override `all` for that mode). The curator UI shows every block, lets you edit it, snapshots prior versions to `letter_block_history` on save, and exposes a one-click "Reset to default" for any scope-specific override.
 
-After editing, commit and push — the edge function fetches templates fresh from `raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/budget-support/templates/` on each cold start, so changes go live within a few minutes (or instantly after redeploying the function).
+To unlock writes in the curator UI:
+
+1. Pick or generate a strong passcode (e.g., `openssl rand -hex 16`).
+2. In Supabase Studio → Edge Functions → Secrets, set `CURATOR_PASSCODE` to that value.
+3. Open `curator.html`, paste the passcode into the "Unlock" box. It's stored in sessionStorage and cleared when the tab closes.
+
+**Letter structure** (the surrounding scaffolding: date, addressees, subject line, signature lines) lives in `templates/template_*.docx`. Edit those in Word if you need to add a new paragraph; add a corresponding row in `letter_blocks` afterwards. After editing the docx, commit and push — the edge function fetches templates fresh from `raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/budget-support/templates/` on each cold start.
+
+See `docs/placeholders.md` for the full token reference.
 
 ## Roadmap (v1.1+)
 
