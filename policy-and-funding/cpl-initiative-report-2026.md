@@ -92,7 +92,7 @@ The MAP platform supports all stages of the CPL lifecycle:
 
 **Two AI-assisted projects are underway:**
 
-1. **AI certification-to-course matching** — Phase 1 covered industry certifications in priority sectors; Phase 2 beta is expanding the pool, with production release planned for **June 2026**.
+1. **AI certification-to-course matching** — Phase 1 is complete, covering **117 industry certifications across 33 priority-sector disciplines**; Phase 2 beta is expanding the pool, with production release planned for **June 2026**. (The filed v1.1 PDF prints 107 in Table 1.1 and 117 in the technology section; the MAP team has confirmed 117 is correct, with a report correction planned.)
 2. **AI apprenticeship CPL tools** — Phase 1 supports apprenticeship and journey-worker CPL, degree-progress reports, and outreach, beginning with construction trades and electricians at Santiago Canyon College and Norco College. Phase 2 will scale statewide in collaboration with trade partners.
 
 A **statewide faculty workgroup portal** is planned for May 2026, enabling ASCCC Pathways to Credit workgroups to develop statewide credit recommendations, validate skills and credentials, and create common-course crosswalks for courses without a C-ID or Common Course Number.
@@ -171,7 +171,7 @@ As filed (March 1, 2026 data):
 | Project (Table 1.1) | Amount | Status at filing |
 | --- | --- | --- |
 | ASCCC Pathways to Credit (2024-2028) — statewide credit recommendations & crosswalks | $1,563,900 | Underway |
-| AI Skills to Course Alignment (2024-2026) — priority-sector certifications | $200,000 | Underway |
+| AI Skills to Course Alignment (2024-2026) — 117 certifications across 33 disciplines | $200,000 | Underway |
 | RP Group Field CPL Survey (2025) — systemwide implementation survey | $57,275 | Completed |
 | CPL Credential Registry – WestEd (2025-2026) — skills taxonomy & CTDL tagging | $200,000 | Underway |
 | CCC Foundation Regional Trainings (2024-2025) — North, South, Central | $233,589 | Completed |
