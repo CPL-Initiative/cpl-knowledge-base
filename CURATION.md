@@ -108,3 +108,60 @@ Refresh process: when the underlying private vault gains new mirrored content, c
 
 - Re-curate quarterly, or after any major release (sprint completion, new fact sheet, new legislative report)
 - For each refresh: re-run a sensitivity audit on changed files and update this file
+
+## Tooling: the curation assistant
+
+`tools/curation_assistant.py` (stdlib-only) automates the *mechanical* half of
+this process and surfaces the *judgment* half — it never publishes on its own.
+
+Given a manifest of what to promote, it:
+
+- copies each promoted file through the **wikilink-strip → relative-relink** and
+  **dashboard-banner** transforms described above;
+- runs a **sensitivity scanner** that *flags* (never silently strips) emails,
+  phones, SSNs, long IDs, DOB / FERPA / PII / confidential / draft markers,
+  dollar figures (possible pre-release), held-private path references, and
+  leftover Obsidian/agent residue;
+- writes the transformed files into this repo's working tree, plus a **masked**
+  report at `curation_out/CURATION_REPORT.md` (gitignored — it cites filenames
+  and line numbers with values masked, so it is never committed).
+
+It is **opt-in and human-gated**:
+
+- The manifest's default bucket is `hold`; a file is promoted only when
+  explicitly listed `promote`/`redact`/`extract`/`rewrite`. `hold` files are
+  skipped entirely (never read into the output).
+- `redact`/`extract`/`rewrite` files are written with a TODO banner — the tool
+  does the wikilink/banner mechanics, **you** do the editorial work.
+- Nothing reaches public `main` without a human opening and merging a PR. That
+  review **is** the sensitivity audit this file requires.
+
+### Manifest
+
+Tab-separated, one row per file (`src` relative to the vault, `dest` relative to
+this repo, `bucket`); `#` comments and blank lines are ignored:
+
+```
+<src-in-vault>    <dest-in-this-repo>    <bucket>
+```
+
+Bootstrap one — every file defaults to `hold`, and you opt files in:
+
+```
+python3 tools/curation_assistant.py --vault ../CPLBrain --init-manifest \
+    > ../CPLBrain/audit/curation-manifest.tsv
+```
+
+### Run
+
+From a checkout of this repo with a CPLBrain clone alongside (a multi-repo
+session, or locally):
+
+```
+python3 tools/curation_assistant.py --vault ../CPLBrain \
+    --manifest ../CPLBrain/audit/curation-manifest.tsv --out .
+```
+
+Then review `curation_out/CURATION_REPORT.md` (resolve every HIGH flag), eyeball
+`git diff`, and open a **draft PR**. `--dry-run` scans and reports without
+writing any curated files.
