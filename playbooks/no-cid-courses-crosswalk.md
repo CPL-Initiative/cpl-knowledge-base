@@ -10,6 +10,9 @@ relevance: "high"
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # No CID Courses — C-ID Course Crosswalk Data
 
 ## Summary
@@ -32,15 +35,10 @@ CSV dataset of C-ID (Course Identification Numbering System) course-to-college c
 - **Match Range:** 40%–95% confidence scores
 
 ## Strategic Notes
-- This data supports the AI-accelerated common course crosswalk work referenced in the Draft CPL Update (goal: 20+ AI-generated crosswalks validated by June 30, 2026)
+- This data supports the AI-accelerated common course crosswalk work (goal: 20+ AI-generated crosswalks validated by June 30, 2026)
 - Courses without a C-ID or Common Course Number (CCN) are the target for this crosswalk work — enabling statewide credit recommendations for courses that lack standardized identifiers
 - The match percentages enable faculty workgroups to prioritize which crosswalks to validate first
 
 ## Connections
 - **Related:** MAP Platform Scaling
 - **Related:** CPL Initiative Report
-- **Related:** Draft CPL Update
-
----
-
-*Ingested from No CID Courses.txt by COG on 2026-04-13*

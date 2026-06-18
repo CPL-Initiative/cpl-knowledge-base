@@ -5,6 +5,9 @@ last_updated: 2026-04
 license: CC BY 4.0
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # MAP UI / Brand Standards
 
 Reference standards for any web property, page, or visual artifact that represents the MAP platform or a college's CPL landing surface. Aligns with the California Community Colleges Chancellor's Office (CCCCO) brand and with the layout patterns proven on `map.rccd.edu`.

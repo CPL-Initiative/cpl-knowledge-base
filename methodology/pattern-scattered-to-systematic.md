@@ -16,7 +16,7 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 
 **Domains:** Professional (MAP/CPL operations), Framework (Claude memory, vault structure), CPL Initiative (Credential Registry, statewide credit recs), MAP Platform (Exhibit Analysis, AI crosswalks).
 
-**Significance:** This is a meta-pattern, not a topic. It is the signal that Sam is operating at an organizational maturity stage where the cost of scattered state has started to exceed the cost of systematizing it. Every future system design decision will be easier if this pattern is named. It is the operational generator of the infrastructure-first-scaling-framework.
+**Significance:** This is a meta-pattern, not a topic. It is the signal that the MAP team is operating at an organizational maturity stage where the cost of scattered state has started to exceed the cost of systematizing it. Every future system design decision will be easier if this pattern is named. It is the operational generator of the infrastructure-first-scaling-framework.
 
 ---
 
@@ -30,7 +30,7 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 **Outcome:** all 119 California Community Colleges campuses, statewide veteran population on the platform, the statewide credit-recommendation library, and cumulative student savings all riding on the substrate. Current totals: dashboards.
 
 ### 2025: Statewide Credit Recommendations
-**Source:** draft-cpl-update-spring-2026
+**Source:** statewide credit-recommendation workplan
 
 **Manifestation:** Each college maintaining its own local articulation decisions is the scattered form. Faculty workgroups producing statewide credit recommendations is the systematic form.
 
@@ -44,7 +44,7 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 **Outcome:** Structured crosswalk data with stable fields (C-ID / college / match %), Phase 1 industry-cert cohort matched, AI tool in production June 2026.
 
 ### 2026-04-13: Vault knowledge base construction
-**Source:** braindump-2026-04-13-1209-workplan-dashboard-automation-strategy
+**Source:** internal vault knowledge-base build notes
 
 **Manifestation:** "Articles, reports, emails, and links need to be dumped and categorized for efficient AI use." The CPL resources folder (22 files) is the visible result: scattered PDFs and Word docs converted into structured markdown with frontmatter, summaries, and cross-references.
 
@@ -57,10 +57,10 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 
 **Outcome:** Growth opportunities become visible and targetable per college (current per-college opportunity counts: dashboards).
 
-### 2026-04-19: Claude session memory
-**Source:** 2026-04-19-claude-md-memory-fix
+### 2026-04-19: Cross-session memory
+**Source:** internal cross-session memory project
 
-**Manifestation:** Claude conversations scattered across sidebar threads, pre-compact context, and individual session state. Converted to `07-session-notes/` folder + CLAUDE.md pointers + `/archive-session` workflow.
+**Manifestation:** AI-assistant conversations scattered across separate threads, pre-compaction context, and individual session state. Converted to a durable session-notes store with pointer files and a repeatable archival workflow.
 
 **Outcome:** Durable memory folder, backfilled placeholders for historical context, and an operational archival skill.
 
@@ -75,8 +75,8 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 
 **What Follows This Pattern:**
 - **Durable store** (MAP platform, vault folder, Exhibit Analysis workbook, Credential Registry).
-- **Pointer layer** (CLAUDE.md, PROJECT-OVERVIEW.md, fact-sheet link directory, dashboard navigation).
-- **Ingestion workflow** (url-dump skill, `/archive-session`, CCCCO Dashboard scrape, AI matching pipeline).
+- **Pointer layer** (project-overview docs, fact-sheet link directories, dashboard navigation).
+- **Ingestion workflow** (URL-capture and archival workflows, the CCCCO Dashboard scrape, the AI matching pipeline).
 - **Backfill effort** (CPL PDFs ingested into structured records, session-state placeholders, and JST upload backlogs processed retroactively).
 - **Progress against legacy** — i.e., systematization always pulls previously-scattered state in, not just net-new.
 
@@ -84,7 +84,7 @@ Across multiple domains, scattered state (chat, email, individual Excel files, o
 The solution shape is strikingly consistent: durable store + pointer + ingestion + backfill. That consistency is itself the infrastructure-first-scaling-framework. Naming the pattern makes it easier to recognize new instances and apply the same shape quickly.
 
 **Potential Actions:**
-- **Amplify:** When a new "scattered" complaint surfaces — from Sam, team, or college — immediately recognize this pattern and propose the durable-store + pointer + workflow shape rather than a one-off fix.
+- **Amplify:** When a new "scattered" complaint surfaces — from the team or a college — immediately recognize this pattern and propose the durable-store + pointer + workflow shape rather than a one-off fix.
 - **Monitor:** Track whether the pattern keeps recurring in the same domains (meaning the systematization isn't taking) or moves to new domains (meaning earlier fixes stuck).
 - **Pre-empt:** When any new workflow is proposed that will accumulate state, ask "where does the durable record live?" before the scattered version is allowed to form.
 

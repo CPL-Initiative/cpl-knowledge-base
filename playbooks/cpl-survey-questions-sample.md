@@ -15,6 +15,9 @@ last_modified: "2024-11"
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Sample Word document providing survey question templates for assessing Credit for Prior Learning programs. Designed to help colleges gather feedback and data on CPL effectiveness, student experience, and program outcomes.

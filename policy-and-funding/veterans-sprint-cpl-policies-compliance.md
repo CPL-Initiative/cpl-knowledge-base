@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint"]
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Comprehensive policy and compliance documentation specific to the Veterans Sprint initiative and Credit for Prior Learning implementation for veteran learners. Covers policy requirements, compliance standards, and implementation guidance for the CCCCO Veteran Sprint.

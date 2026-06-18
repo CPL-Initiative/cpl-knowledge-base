@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint", "MAP Platform Scaling"]
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Web portal allowing students to search for their college and request credit for prior learning. Provides a centralized entry point where students can "upload your documents and request a review" through college-specific landing pages.

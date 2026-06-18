@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint"]
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Combined notification documents and compliance information for working with Veterans Affairs (VA) benefits and Credit for Prior Learning. Essential for ensuring CPL processes align with VA regulations and communication requirements.

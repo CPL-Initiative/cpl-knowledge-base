@@ -15,6 +15,9 @@ last_modified: "2024-11"
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Sample Word document providing a template for the CPL Faculty Coordinator position. This template defines the role, responsibilities, and qualifications for a faculty-level coordinator leading CPL implementation at a college.

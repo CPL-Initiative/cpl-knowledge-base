@@ -23,7 +23,7 @@ Every AI deployment in the CPL program is designed with AI producing first-draft
 ## Occurrences
 
 ### AI Certification-to-Course Matching
-**Source:** [cpl-initiative-report-2026](../policy-and-funding/cpl-initiative-report-2026.md), draft-cpl-update-spring-2026
+**Source:** [cpl-initiative-report-2026](../policy-and-funding/cpl-initiative-report-2026.md)
 
 **Manifestation:**
 - Phase 1 complete: a first cohort of industry certifications matched to CCC courses by AI, reviewed by faculty.
@@ -34,7 +34,7 @@ Every AI deployment in the CPL program is designed with AI producing first-draft
 **Faculty validation point:** Faculty workgroups validate AI-generated matches before they become statewide credit recommendations. AI accelerates; faculty approve.
 
 ### AI Apprenticeship CPL Tools
-**Source:** draft-cpl-update-spring-2026
+**Source:** FY2026 apprenticeship CPL sprint updates
 
 **Manifestation:**
 - N2N Lightleap AI contract supporting the build.
@@ -44,7 +44,7 @@ Every AI deployment in the CPL program is designed with AI producing first-draft
 **Faculty validation point:** Apprenticeship credit recommendations still require faculty workgroup sign-off; AI produces the candidates.
 
 ### AI-Generated Common Course Crosswalks
-**Source:** [no-cid-courses-crosswalk](../playbooks/no-cid-courses-crosswalk.md), draft-cpl-update-spring-2026
+**Source:** [no-cid-courses-crosswalk](../playbooks/no-cid-courses-crosswalk.md)
 
 **Manifestation:**
 - Structured AI-matched C-ID-to-local-course crosswalks with confidence scores in the 40–95% range.
