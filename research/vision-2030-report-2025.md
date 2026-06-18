@@ -4,9 +4,6 @@ source: Vision 2030 Roadmap, July 2025 edition
 license: CC BY 4.0
 ---
 
-> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
-
-
 # Vision 2030 — A Roadmap for California Community Colleges (July 2025 edition)
 
 > **Live data supersedes static counts.** Current student counts, equity outcomes, and goal-to-date progress are on the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard). This file preserves the structure, goals, strategic directions, and CPL-specific references from the July 2025 edition.

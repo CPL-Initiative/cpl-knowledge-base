@@ -4,9 +4,6 @@ source: California Community Colleges CPL Fact Sheet, February 2026
 license: CC BY 4.0
 ---
 
-> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
-
-
 # CPL Fact Sheet — February 2026 (Public / Press Edition)
 
 > **Live data supersedes this fact sheet.** Vision 2030 goal-to-date counts and current operational metrics are on the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard). What's preserved here: definitions, sourced research findings, statutory funding amounts, the Vision 2030 goal and stretch goal, and the public resource directory.

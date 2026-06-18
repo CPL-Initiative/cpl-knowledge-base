@@ -46,7 +46,7 @@ Official Chancellor's Office memorandum (ESS 25-82) from Vice Chancellor James E
 ## Strategic Notes
 - This memo is the operational implementation of AB 123's $15M one-time funding
 - The three priority outcomes directly align with the Veteran Sprint goals and CPL Workplan dashboard tracking
-- College of Sequoias was the only campus to decline the funding (per CPL Initiative Report)
+- Just one college declined funding, pending further review
 
 ## Connections
 - **Related:** CPL Initiative Overview
