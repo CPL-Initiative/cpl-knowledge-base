@@ -4,6 +4,9 @@ source: MAP Exhibit Analysis (Excel workbook, refreshed periodically)
 license: CC BY 4.0
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # MAP Exhibit Analysis — Analytical Companion
 
 > **Live data supersedes static counts in this overview.** Current articulated credit recommendations, exhibit titles, college counts, and discipline / CPL-type breakdowns are produced by the MAP Exhibit Analysis workbook and reflected on the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) and the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/). This file describes the workbook's structure and analytical purpose — refer to the dashboards for current values.

@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint", "MAP Platform Scaling", "A
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Comprehensive implementation guide designed to support all campus professionals involved in Credit for Prior Learning programs. Provides clear guidance, tools, and strategies for leveraging the MAP Platform to build, scale, and institutionalize CPL across California community colleges.

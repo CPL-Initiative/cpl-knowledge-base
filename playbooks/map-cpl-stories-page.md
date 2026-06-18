@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint", "MAP Platform Scaling"]
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 Platform for sharing success stories about Credit for Prior Learning (CPL) at California community colleges. The page invites students, faculty, counselors, and administrators to contribute narratives about how CPL has helped learners earn college credit and accelerate degree completion.

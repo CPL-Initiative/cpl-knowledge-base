@@ -12,6 +12,9 @@ related_projects: ["CPL Initiative & Veteran Sprint"]
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 ## Quick Summary
 
 System-wide call to action from the Chancellor of the California Community Colleges regarding Credit for Prior Learning implementation. This document provides executive-level direction and priority for CPL work across the CCCCO system.

@@ -10,6 +10,9 @@ relevance: "critical"
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # Expected Economic Benefits of CPL in California — Beacon Economics (June 2024)
 
 > **Beacon's research figures are evergreen** (per-student savings, per-credit economic output, tax-revenue impact) until Beacon publishes a refresh. **Goal-to-date progress against the Vision 2030 target — the population assumption that drives the $32.4B aggregate projection — lives on the [CPL Project Dashboard](../current-status/README.md), not in this file.**

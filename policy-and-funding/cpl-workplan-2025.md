@@ -10,6 +10,9 @@ relevance: "critical"
 last_consolidated: "2026-04-19"
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # Vision 2030: Credit for Prior Learning Workplan (July 2025)
 
 ## Summary
@@ -61,7 +64,7 @@ The official Vision 2030 CPL Workplan — a 6-page implementation roadmap prepar
 
 ## Strategic Notes
 - This is the authoritative implementation roadmap that the $50K college grants (ESS 25-82) are measured against
-- The four activities map directly to the dashboard tracking needs identified in Sam's April 13 braindump
+- The four activities map directly to the dashboard tracking needs identified in internal CPL dashboard-automation planning
 - The workplan is the bridge document between Vision 2030's high-level goals and the CPL Initiative's on-the-ground execution
 
 ## Connections
@@ -69,8 +72,3 @@ The official Vision 2030 CPL Workplan — a 6-page implementation roadmap prepar
 - **Related:** Scaling CPL in California
 - **Related:** ESS 25-82 Funding Memo
 - **Related:** Vision 2030 Report
-- **Braindump:** Dashboard & Automation Strategy
-
----
-
-*Ingested from credit-for-prior-learning-workplan.pdf by COG on 2026-04-13*

@@ -4,6 +4,9 @@ source: Scaling-Credit-for-Prior-Learning-in-California (October 2024)
 license: CC BY 4.0
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # Scaling Credit for Prior Learning in California — Vision 2030 and the MAP Initiative (October 2024)
 
 > **Live data supersedes static counts in this document.** Goal 1 annual milestones, current colleges participating, statewide credit recommendations adopted, and faculty workgroup progress are tracked on the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard). What's preserved here: the framework, goals, scope, definitions, and historical context.

@@ -4,11 +4,14 @@ category: "policy"
 project: "cpl-initiative"
 date: "2025-12-09"
 created: "2026-04-13 13:00"
-source: "20260212 ess-25-82-credit-for-prior-learning-funding.docx"
+source: "ess-25-82-credit-for-prior-learning-funding.docx"
 tags: ["#resource", "#cpl", "#funding", "#policy", "#ess-25-82", "#ab-123"]
 relevance: "critical"
 last_consolidated: "2026-04-19"
 ---
+
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
 
 # ESS 25-82 — Credit for Prior Learning Funding Memo (Dec 9, 2025)
 
@@ -49,7 +52,3 @@ Official Chancellor's Office memorandum (ESS 25-82) from Vice Chancellor James E
 - **Related:** CPL Initiative Overview
 - **Related:** CPL Fact Sheet
 - **Related:** CPL Initiative Report
-
----
-
-*Ingested from 20260212 ess-25-82-credit-for-prior-learning-funding.docx by COG on 2026-04-13*

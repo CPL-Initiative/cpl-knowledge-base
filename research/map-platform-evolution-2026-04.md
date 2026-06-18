@@ -6,6 +6,9 @@ created: "2026-04-19"
 tags: ["#timeline", "#evolution", "#map-platform", "#cpl-initiative"]
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # Thinking Evolution: MAP Platform — Narrow Tool to Statewide CPL Substrate
 
 ## Timeline Period
@@ -52,7 +55,7 @@ From **single-purpose tool owned by one district** → **statewide infrastructur
 **Impact:** Portability test passed — the platform survives a major governance move. Policy pillar formalized.
 
 ### Fall 2024 — Veteran Sprint launched
-**Source:** draft-cpl-update-spring-2026
+**Source:** Veteran Sprint launch updates
 
 **What Happened:** Chancellor Christian launches the Veteran Sprint with three measurable goals. MAP becomes the operational substrate for the sprint.
 
@@ -80,7 +83,7 @@ From **single-purpose tool owned by one district** → **statewide infrastructur
 **Impact:** Substrate now has a direct-to-student surface, closing the loop.
 
 ### 2027 — 29 Palms scalable model ready
-**Source:** draft-cpl-update-spring-2026
+**Source:** 29 Palms demonstration project plan
 
 **What Happened (projected):** 29 Palms demonstration project produces a replicable model for 34 CA military bases.
 
@@ -104,7 +107,7 @@ From **single-purpose tool owned by one district** → **statewide infrastructur
 - [scaling-cpl-california-2024](scaling-cpl-california-2024.md) — three-pillar framing codified.
 - [cpl-workplan-2025](../policy-and-funding/cpl-workplan-2025.md) — four-activity workplan.
 - [cpl-initiative-report-2026](../policy-and-funding/cpl-initiative-report-2026.md) — AB 123 legislative report.
-- draft-cpl-update-spring-2026 — three concurrent sprints running.
+- FY2026 sprint tracking — three concurrent sprints running.
 - [map-exhibit-analysis](../playbooks/map-exhibit-analysis.md) — analytical layer mature.
 
 ### Forward: 2026-2030

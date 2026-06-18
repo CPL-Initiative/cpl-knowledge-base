@@ -9,6 +9,9 @@ contact: Chris Ferguson, Executive Vice Chancellor of Finance and Strategic Init
 license: CC BY 4.0
 ---
 
+> ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
+
+
 # 2026 CPL Initiative Report (AB 123 Legislative Report)
 
 > Filed pursuant to **AB 123** (Chaptered, July 2025) — see the [official chaptered version of the bill](https://map.rccd.edu/wp-content/uploads/2025/07/07292025-AB-123-Chaptered-Version.pdf).
