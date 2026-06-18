@@ -1,0 +1,7 @@
+# Curation assistant — sensitivity report + any local working output.
+# It masks values but still cites private filenames/lines; never commit it.
+curation_out/
+
+# Python
+__pycache__/
+*.pyc
