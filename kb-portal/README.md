@@ -30,20 +30,28 @@ it as a real access-controlled app (RLS-backed data, no public raw fetch).
 
 ## Provisioning (one-time)
 
-A dedicated Supabase project keeps this isolated from the `budget-support` project.
+**Decision: reusing the existing `cpl-budget-support` Supabase project**
+(`mdxutmbpoqjtdcwjscux`) rather than a dedicated one — $0 extra. That project
+doesn't use Supabase Auth today, so adding these auth users / settings doesn't
+affect it, and KB-portal users get no access to its data (its RLS grants nothing
+to the `authenticated` role).
 
-1. **Create the project** (dedicated, e.g. `cpl-kb-portal`). Copy its Project URL
-   and **publishable (anon)** key into `config.js`.
-2. **Disable open signups:** Auth → Providers → Email → turn **off** "Allow new
+✅ **Done in code:** `config.js` is wired to that project's URL + publishable key.
+
+⬜ **Remaining — do these in Supabase Studio** (can't be set via the MCP tools):
+
+1. **Disable open signups:** Auth → Providers → Email → turn **off** "Allow new
    users to sign up" (or set `GOTRUE_DISABLE_SIGNUP=true`). Magic link / email OTP
-   stays enabled.
-3. **Provision the two users:** Auth → Users → *Add user* for `slee@cccco.edu` and
+   stays enabled. *(Safe here — the project has no auth users today.)*
+2. **Provision the two users:** Auth → Users → *Add user* for `slee@cccco.edu` and
    `malone.dunlavy@rccd.edu` (no password needed; they sign in via magic link).
-4. **Set URLs:** Auth → URL Configuration → set **Site URL** to where the portal
+3. **Set URLs:** Auth → URL Configuration → set **Site URL** to where the portal
    is hosted, and add that URL to **Redirect URLs** (e.g.
    `https://cpl-initiative.github.io/cpl-knowledge-base/kb-portal/` and, for local
-   testing, `http://localhost:8000/kb-portal/`).
-5. **(Optional) Custom SMTP:** the built-in mailer is rate-limited (fine for two
+   testing, `http://localhost:8000/kb-portal/`). The app uses
+   `location.origin + location.pathname` as the redirect, so it adapts to whatever
+   host you allow here.
+4. **(Optional) Custom SMTP:** the built-in mailer is rate-limited (fine for two
    occasional users). For reliability, add a transactional sender later — **not**
    `map@rccd.edu` (a dedicated `noreply@…` or Resend/Postmark/Graph).
 

@@ -8,9 +8,13 @@
 // The KB content it renders is already public on GitHub / via raw URLs, so the
 // login personalizes the reading experience — it is not a content lock.
 //
-// >>> Fill these two in after the dedicated Supabase project is provisioned <<<
-export const SUPABASE_URL  = "https://REPLACE_WITH_KB_PORTAL_PROJECT.supabase.co";
-export const SUPABASE_ANON = "REPLACE_WITH_KB_PORTAL_PUBLISHABLE_KEY";
+// Wired to the existing "cpl-budget-support" Supabase project (reused to avoid a
+// second project and extra cost). The publishable (anon) key is safe to commit.
+// One-time auth setup still has to be done in Supabase Studio (see README):
+// disable signups, add the two allowlisted users, and add this portal's host
+// URL to the project's Redirect URLs. Until then sign-in won't complete.
+export const SUPABASE_URL  = "https://mdxutmbpoqjtdcwjscux.supabase.co";
+export const SUPABASE_ANON = "sb_publishable_lPfS842rgq7Ru0IUy4KaOg_Q55SGLhQ";
 
 // Source of the rendered content (public repo, main branch).
 export const REPO_OWNER = "CPL-Initiative";
