@@ -165,3 +165,28 @@ python3 tools/curation_assistant.py --vault ../CPLBrain \
 Then review `curation_out/CURATION_REPORT.md` (resolve every HIGH flag), eyeball
 `git diff`, and open a **draft PR**. `--dry-run` scans and reports without
 writing any curated files.
+
+## Promoting a checkpoint or vault note (the incremental path)
+
+The v1 inclusion list above was the bulk first pass. The **same human-gated
+pipeline** handles ongoing, one-note-at-a-time promotion — including a
+`cpl-project-tracker` `/checkpoint` (Rule 8) `docs/kb-notes/` note that has synced
+into the vault, or a new `05-knowledge/` consolidated insight:
+
+1. **Confirm public-eligibility.** The note must carry no held / PII / pre-release
+   content — nothing from `00-inbox/`, `02-personal/`, `03-professional/braindumps/`,
+   `07-session-notes/`, `college-updates/`, or unreleased drafts — and any metric
+   must defer to the dashboards (see *Metrics policy* above), never present a count
+   as current.
+2. **Opt the note in.** Add one tab-separated `src` / `dest` / `bucket` row to
+   `../CPLBrain/audit/curation-manifest.tsv` (bucket = `promote` / `redact` /
+   `extract` / `rewrite`); everything unlisted stays `hold`.
+3. **Run the assistant + review.** Run it per *Tooling* above, resolve **every HIGH
+   flag** in the (gitignored) `curation_out/CURATION_REPORT.md`, eyeball `git diff`,
+   then open a **draft PR**. A human reviews and merges — that review IS the
+   sensitivity audit.
+
+**Never automate this.** `/checkpoint` writes only to the tracker's `docs/` and the
+vault; it must never push to this public KB. A checkpoint note is simply one more
+*candidate* for this path — surfacing in the vault does not make it public.
+Promotion is always a deliberate, reviewed step.

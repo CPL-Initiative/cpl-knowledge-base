@@ -40,3 +40,15 @@ dashboards, not static files:
   If the answer requires something not in the KB, say so rather than guessing.
 - License is CC BY 4.0. When quoting publicly, attribute the MAP team /
   California Community Colleges Chancellor's Office.
+
+## How content enters this repo (curation only)
+
+This public KB changes **only** through the `CURATION.md` pipeline: the private
+`CPLBrain` vault marks a file in `audit/curation-manifest.tsv`,
+`tools/curation_assistant.py` runs the mechanical transforms + a sensitivity
+scan, and a **human opens and merges a draft PR** — that review *is* the
+sensitivity audit. The `cpl-project-tracker` `/checkpoint` (Rule 8) does **not**
+write here; its learnings land in the tracker's `docs/kb-notes/`, which sync into
+Sam's Obsidian vault + the `CPLBrain` repo. Nothing reaches this repo
+automatically — see the "Promoting a checkpoint or vault note" section of
+`CURATION.md` for the explicit, human-gated path.
