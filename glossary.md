@@ -8,6 +8,8 @@
 
 **ACCJC** — Accrediting Commission for Community and Junior Colleges. Sets accreditation standards including those that touch CPL.
 
+**ARTP** — Accredited Regional Training Program; a California Community College–Office of the State Fire Marshal partnership authorized to deliver State Fire Training (SFT) courses for both college units and fire-service certification.
+
 **ASCCC** — Academic Senate for California Community Colleges. Faculty governance body that adopts statewide credit recommendations published on MAP ("Pathways to Credit").
 
 **Beacon Economics** — Economic-research firm that produced the 2024 economic-impact study underlying CPL's headline $32.5B projected impact figure.
@@ -17,6 +19,8 @@
 **BOG** — Board of Governors of the California Community Colleges.
 
 **CAEL** — Council for Adult and Experiential Learning. National research organization; co-author of the PLA Boost study.
+
+**Cal OES** — California Governor's Office of Emergency Services; the state emergency-management agency and parent of CSTI.
 
 **CCAP** — College and Career Access Pathways (dual-enrollment partnerships between CCCs and high schools).
 
@@ -28,6 +32,8 @@
 
 **C-ID** — Course Identification Numbering System; a statewide common course numbering for transfer alignment.
 
+**C-ID FIRE descriptors** — statewide common course descriptors for Fire Technology (e.g., FIRE 100X–140X), standardized at 3 units / 54 lecture hours each.
+
 **CC Crosswalk**  — Common Course Crosswalk; MAP curated and faculty established common course crosswalks that follow the C-ID and Common Course Number (CCN) data standards. 
 
 **CCN** — Common Course Number; Common Course numbers and descriptors statutorily required to serve as a single general education pathway for CCC, CSU, and US programs.
@@ -38,9 +44,15 @@
 
 **CR** — Credit Recommendation.
 
+**CSTI** — California Specialized Training Institute; the training arm of Cal OES (Camp San Luis Obispo, est. 1971), offering 100+ courses across emergency management, hazardous materials, homeland security, criminal justice, and crisis communications.
+
 **CSU / UC** — California State University / University of California systems; transfer destinations whose acceptance of CPL credit matters for student outcomes.
 
 **ESS 25-82** — Chancellor's Office Educational Services & Support memorandum directing $50,000 CPL implementation grants to colleges under AB 123.
+
+**FEMA EMI** — Federal Emergency Management Agency's Emergency Management Institute; provider of Independent Study (IS) courses and the Emergency Management Professional Program academies.
+
+**FESHE** — Fire and Emergency Services Higher Education; the FEMA / U.S. Fire Administration national model fire-science curriculum (six core courses, ≈3 credits each).
 
 **JST** — Joint Services Transcript. Federal record of a service member's military training and experience, used as the primary input for veteran CPL evaluations.
 
@@ -54,6 +66,8 @@
 
 **N2N / Lightleap** — Vendor partner providing CPL-related AI tools.
 
+**NIMS / ICS / SEMS** — National Incident Management System / Incident Command System / California's Standardized Emergency Management System (Gov. Code §8607); the all-hazards command frameworks underlying responder training.
+
 **No-CID Courses Crosswalk** — Internal MAP analytical product mapping non-C-ID courses to CPL-eligible patterns using AI-assisted matching, validated by faculty workgroups.
 
 **PLA Boost** — Joint CAEL/WICHE study quantifying the impact of Prior Learning Assessment on adult-learner outcomes.
@@ -61,6 +75,8 @@
 **RCCD** — Riverside Community College District. Host district for the MAP team operating MAP on behalf of the Chancellor's Office.
 
 **Scalable Model** — In CPL Sprint terminology, the replicable deliverable produced by a sprint's demonstration project — the artifact other colleges adopt.
+
+**SFT / OSFM** — California State Fire Training, a division of the Office of the State Fire Marshal (within CAL FIRE); delivers fire-service certification via Accredited Regional Training Programs (ARTPs). Distinct from Cal OES.
 
 **Sprint** — Time-bounded, outcome-anchored campaign within the CPL initiative (Veteran Sprint, Apprenticeship Sprint, Statewide Credit Recommendations Sprint).
 
