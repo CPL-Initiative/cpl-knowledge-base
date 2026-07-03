@@ -13,6 +13,7 @@ This repo intentionally does **not** carry dated metric snapshots, goal-to-date 
 
 - **Project dashboard JSON:** <https://raw.githubusercontent.com/cpl-initiative/cpl-project-tracker/main/live_metrics.json>
 - **MAP Insights API (potential savings):** <https://cpldashboardcccco.azurewebsites.net/api/potential-savings?cpltype=0&indExcludeSA=0>
+  - Field reference, response shape, and parsing notes: [potential-savings-api.md](./potential-savings-api.md)
 
 ## What the dashboards report
 
