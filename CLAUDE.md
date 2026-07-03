@@ -4,7 +4,7 @@
 
 When the conversation touches any of:
 
-- CPL (Credit for Prior Learning), MAP (Map Academic Pathways) Platform
+- CPL (Credit for Prior Learning), the MAP (Mapping Articulated Pathways) platform
 - AB 123 (chaptered July 2025), ESS 25-82, ACCJC alignment
 - California Community Colleges (CCC), Chancellor's Office (CCCCO), RCCD
 - Vision 2030, master plan, Beacon Economics reports
@@ -33,6 +33,22 @@ dashboards, not static files:
 - MAP CPL Insights Dashboard: https://cpldashboardcccco.azurewebsites.net/insights/dashboard
 - Project tracker JSON: https://raw.githubusercontent.com/cpl-initiative/cpl-project-tracker/main/live_metrics.json
 - Potential-savings API: https://cpldashboardcccco.azurewebsites.net/api/potential-savings?cpltype=0&indExcludeSA=0
+
+## Naming conventions (updated 2026-07-03)
+
+The initiative has entered a new phase of its identity — an established
+statewide CPL infrastructure, not a homegrown solution being sold:
+
+- The program is the **CPL Initiative** (of the California Community Colleges
+  Chancellor's Office). Do **not** call it the "MAP Initiative" in new writing.
+- The platform is the **MAP platform**, long form **Mapping Articulated
+  Pathways (MAP) platform**.
+- **"Military Articulation Platform" is the platform's original 2017 launch
+  name — use it ONLY when explicitly recounting that history** (see
+  `glossary.md` and `research/map-platform-evolution-2026-04.md`). Never
+  present it as the current expansion of MAP.
+- Older documents quoted or catalogued in this KB may say "MAP Initiative" in
+  their titles — leave historical titles and quotations verbatim.
 
 ## Caveats
 
