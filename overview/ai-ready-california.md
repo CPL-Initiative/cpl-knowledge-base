@@ -1,7 +1,7 @@
 ---
 title: AI-Ready California
-status: draft
-last_updated: 2026-04
+status: tabled
+last_updated: 2026-07
 license: CC BY 4.0
 ---
 
@@ -9,13 +9,13 @@ license: CC BY 4.0
 
 ## What this is
 
-A potential two-year demonstration project (Spring 2027 – Spring 2029) uniting three California Community Colleges Board of Governors priorities — CPL, dual enrollment, and internship/work-based learning — into a single CPL-embedded pathway from high school through an AS degree to the new Bachelor of Applied Science in AI/Society Operations (BAS-ASIO).
+Project currently tabled and has not been widely discussed. A potential two-year demonstration project (Spring 2027 – Spring 2029) uniting three California Community Colleges Board of Governors priorities — CPL, dual enrollment, and internship/work-based learning — into a single CPL-embedded pathway from high school through an AS degree to the new Bachelor of Applied Science in AI/Society Operations (BAS-ASIO).
 
 Four potential demonstration districts: Riverside CCD (RCCD), San Diego CCD (SDCCD), Los Angeles CCD (LACCD), San Bernardino CCD (SBCCD).
 
 ## Current phase
 
-Year 1 — Propose, Design, Develop, and Pilot.
+Year 1 — TABLED Propose, Design, Develop, and Pilot.
 
 Active workstreams:
 
