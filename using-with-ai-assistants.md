@@ -42,7 +42,7 @@ For deep priming on a new initiative or partnership conversation, paste all four
 
 ### "What's the legislative / funding picture?"
 
-Paste [`policy-and-funding/cpl-initiative-report-2026.md`](policy-and-funding/cpl-initiative-report-2026.md) (the AB 123 report mirror) plus the [ESS 25-82 funding memo](policy-and-funding/ess-25-82-funding-memo.md). Cite AB 123 itself: <https://map.rccd.edu/wp-content/uploads/2025/07/07292025-AB-123-Chaptered-Version.pdf>.
+Paste [`policy-and-funding/cpl-legislative-report-2026-07.md`](policy-and-funding/cpl-legislative-report-2026-07.md) (the July 2026 legislative report — supersedes the March 2026 filing) plus the [ESS 25-82 funding memo](policy-and-funding/ess-25-82-funding-memo.md). For the AB 123 filing of record, add [`policy-and-funding/cpl-initiative-report-2026.md`](policy-and-funding/cpl-initiative-report-2026.md). Cite AB 123 itself: <https://map.rccd.edu/wp-content/uploads/2025/07/07292025-AB-123-Chaptered-Version.pdf>.
 
 ### "What's the economic case for CPL?"
 

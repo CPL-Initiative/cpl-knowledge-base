@@ -11,6 +11,8 @@ license: CC BY 4.0
 
 # 2026 CPL Initiative Report (AB 123 Legislative Report)
 
+> **Superseded (July 2026).** A newer legislative report supersedes this version: the [CPL Initiative Legislative Report — July 2026](cpl-legislative-report-2026-07.md). This mirror is retained as the historical record of the March 26, 2026 AB 123 filing.
+
 > Filed pursuant to **AB 123** (Chaptered, July 2025) — see the [official chaptered version of the bill](https://map.rccd.edu/wp-content/uploads/2025/07/07292025-AB-123-Chaptered-Version.pdf).
 
 > **Live data supersedes this mirror.** Specific student counts, units, savings, and goal-to-date percentages in this report reflect March 1, 2026 — the snapshot date of the legislative filing. For current figures and goals, see the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard). This file preserves the report's structure, framing, qualitative findings, and the filed March 1, 2026 snapshot as the historical record of the filing. (Official PDF link to be added when the report is posted publicly.)

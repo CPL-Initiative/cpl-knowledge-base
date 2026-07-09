@@ -57,7 +57,8 @@ For the operating logic, see [Three-Pillar Initiative Design](../methodology/thr
 
 - [MAP Platform overview](map-platform.md) — the technology substrate this initiative runs on
 - [AI-Ready California overview](ai-ready-california.md) — a potential demonstration of CPL applied to AI workforce pathways
-- [AB 123 legislative report (2026)](../policy-and-funding/cpl-initiative-report-2026.md)
+- [CPL Initiative Legislative Report — July 2026](../policy-and-funding/cpl-legislative-report-2026-07.md) (supersedes the March 2026 filing)
+- [AB 123 legislative report (March 2026 filing)](../policy-and-funding/cpl-initiative-report-2026.md)
 - [ESS 25-82 funding memo](../policy-and-funding/ess-25-82-funding-memo.md)
 - [Live status and metrics](../current-status/README.md)
 - [Methodology — Three-Pillar Initiative Design](../methodology/three-pillar-initiative-design.md)
