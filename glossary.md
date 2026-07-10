@@ -16,6 +16,8 @@
 
 **BOG** — Board of Governors of the California Community Colleges.
 
+**CA LWDA** — California Labor and Workforce Development Agency. State agency partner collaborating with the CPL Initiative on workforce alignment.
+
 **CAEL** — Council for Adult and Experiential Learning. National research organization; co-author of the PLA Boost study.
 
 **CCAP** — College and Career Access Pathways (dual-enrollment partnerships between CCCs and high schools).

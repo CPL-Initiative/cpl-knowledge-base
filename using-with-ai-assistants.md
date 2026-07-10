@@ -12,7 +12,7 @@ This repo is designed to be pasted into AI assistant chats (Claude.ai, ChatGPT, 
 
 - Paste a **folder URL** or **file URL** from this repo into the chat — most assistants will fetch and read it.
 - For **live numbers**, point the assistant at the dashboards in [`current-status/`](current-status/README.md), not at files in this repo.
-- The four files in [`methodology/`](methodology/) are the **highest-value priming docs** — they teach the assistant how the CPL Initiative is structured to think about new questions.
+- The four framework docs in [`methodology/`](methodology/) — Three-Pillar Initiative Design, Infrastructure-First Scaling, Sprint-Based Execution, Evidence-First Advocacy — are the **highest-value priming docs**: they teach the assistant how the CPL Initiative is structured to think about new questions.
 
 ## What to paste in for different questions
 

@@ -1,33 +1,41 @@
-# CPL Project Tracker — Claude Code instructions
+# CPL Knowledge Base — Claude Code instructions
 
-## CPL Knowledge Base
+The canonical user-level copy of these instructions is
+[`claude/CLAUDE.md`](claude/CLAUDE.md) (installed on machines via
+`claude/install.sh`, self-refreshing each session). The "When to consult",
+"How to consult", "Naming conventions" and "Caveats" sections here must stay
+**verbatim-identical** to it — edit both or neither. This root file
+additionally carries the repo-only "How content enters this repo" section.
 
-When the conversation touches any of:
+## When to consult the KB
+
+Consult the knowledge base before answering when a question touches any of:
 
 - CPL (Credit for Prior Learning), the MAP (Mapping Articulated Pathways) platform
-- AB 123 (chaptered July 2025), ESS 25-82, ACCJC alignment
+- AB 123 (chaptered July 2025), ESS 25-82, ACCJC alignment, Title 5 CPL regulations, the LAO's CPL budget analysis
 - California Community Colleges (CCC), Chancellor's Office (CCCCO), RCCD
+- The Veteran(s) Sprint (JST processing), the Military Base CPL Demonstration (29 Palms MCAGCC / Copper Mountain College), VA compliance
 - Vision 2030, master plan, Beacon Economics reports
-- AI-Ready California
 - Glossary terms: JST, BAS-ASIO, MIS, CAEL, ASCCC, ACE, CA LWDA
 
-…consult the public CPL Knowledge Base before answering:
+If the question is clearly outside these topics, ignore this file and
+proceed normally.
 
-- Repo: https://github.com/CPL-Initiative/cpl-knowledge-base
-- Raw base: https://raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/
+## How to consult the KB
 
-Use WebFetch against the raw base URL to pull only the specific file(s)
-needed — do not mirror the whole repo into context. The four files under
-`methodology/` are the highest-value priming docs when broader context
-is needed.
+Repo: https://github.com/CPL-Initiative/cpl-knowledge-base
+Raw base: https://raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/
 
-The canonical version of these instructions lives at:
-https://raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/claude/CLAUDE.md
-
-## Live metrics
+1. If a local clone of `cpl-knowledge-base` is available on disk, read from there.
+2. Otherwise use WebFetch against the raw base URL to pull the specific file(s)
+   you need. Do not mirror the whole repo into context.
+3. Read only what is relevant to the question. The four framework docs under
+   `methodology/` — Three-Pillar Initiative Design, Infrastructure-First
+   Scaling, Sprint-Based Execution, and Evidence-First Advocacy — are the
+   highest-value priming docs when broader context is needed.
 
 For "how many / how much / current status" questions, defer to the live
-dashboards, not static files:
+dashboards, not static files in the repo:
 
 - CPL Project Dashboard: https://cpl-initiative.github.io/cpl-project-tracker/
 - MAP CPL Insights Dashboard: https://cpldashboardcccco.azurewebsites.net/insights/dashboard
@@ -52,10 +60,15 @@ statewide CPL infrastructure, not a homegrown solution being sold:
 
 ## Caveats
 
-- The KB is a curated public subset of an internal vault, not the full record.
+- The KB is a curated subset of an internal vault, not the full record.
   If the answer requires something not in the KB, say so rather than guessing.
+- The KB intentionally avoids dated metric snapshots — always prefer live
+  dashboards for current numbers.
 - License is CC BY 4.0. When quoting publicly, attribute the MAP team /
   California Community Colleges Chancellor's Office.
+- AI-Ready California is **tabled** (see `overview/ai-ready-california.md`) —
+  don't present it as an active workstream; it left the consult-trigger list
+  2026-07-10.
 
 ## How content enters this repo (curation only)
 
