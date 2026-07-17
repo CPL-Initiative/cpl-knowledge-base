@@ -67,7 +67,7 @@ Every AI deployment in the CPL program is designed with AI producing first-draft
 **Source:** [cpl-workplan-2025](../policy-and-funding/cpl-workplan-2025.md), [cpl-initiative-report-2026](../policy-and-funding/cpl-initiative-report-2026.md)
 
 **Manifestation:**
-- Scheduled for May 2026 production release.
+- Live in production at <https://creditforbeingyou.org> (launched 2026).
 - Designed for use by every California Community Colleges student exploring CPL (annual usage target: dashboards).
 - Integrates with CCCApply, MyPath, educational planning, Guided Pathways.
 
