@@ -16,12 +16,18 @@ Public surface: <https://map.rccd.edu>.
 ## Current state
 
 - Operational and serving all 119 California Community College campuses.
+- **The CPL Student Portal is live in production at <https://creditforbeingyou.org>** — the
+  free, open-sign-up, student-facing front door to CPL, available to prospective students and
+  students at all 119 colleges. Students create an account, add their prior learning in the
+  CPL Builder, browse live matches by college, and submit CPL requests for review. See
+  [How students get started](../playbooks/cpl-student-portal.md).
 - For current metrics (military-connected students, statewide credit recommendations, colleges meeting active-participation thresholds), see [`current-status/`](../current-status/README.md).
 
 ## Upcoming releases
 
-- AI-enabled CPL Student Portal — April 2026
 - MAP Exhibit module — April 2026
+- CPL Student Portal Phase 2 (Program Pathways Mapper, CVC course offerings, résumé
+  analyzer/builder) — December 2026
 - AI certification tracking configuration for AI-Ready California — August 2026
 - LAUNCH Apprenticeship Network onboarding (~1,000 records) — June 2026
 - Apprenticeship data matched to college enrollment onboarding — June 2026

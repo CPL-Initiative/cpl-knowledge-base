@@ -45,7 +45,7 @@ For the operating logic, see [Three-Pillar Initiative Design](../methodology/thr
 ## Active milestones (2026)
 
 - Hit the FY2025-26 JST-upload college-participation target (live target and progress: dashboards) — 2026-06-30
-- Launch the AI-enabled CPL Student Portal — 2026-04-30
+- ✅ Launched the AI-enabled CPL Student Portal — now live in production at <https://creditforbeingyou.org> (see [how students get started](../playbooks/cpl-student-portal.md))
 - Activate the CPL student impact survey, which includes the "My CPL Story" function — 2026-04-30
 - Complete 20+ AI-generated common-course crosswalks — 2026-06-30
 - Apprenticeship Sprint progress (Santiago Canyon + Norco / Construction Trades and IBEW) — 2026-06-30

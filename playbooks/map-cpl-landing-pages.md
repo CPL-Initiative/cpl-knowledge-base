@@ -15,6 +15,16 @@ last_consolidated: "2026-04-19"
 > ℹ️ **Operational metrics live on the dashboards, not here.** Specific counts in this mirror reflect the source document's original publication date. See the [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) and the [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) for current figures.
 
 
+> **For students: which path is right for you?** The **CPL Student Portal at
+> [creditforbeingyou.org](https://creditforbeingyou.org)** is now the front door for students
+> who are exploring CPL, aren't enrolled yet, or want to see their CPL opportunities across
+> colleges (create an account, build a CPL profile, browse matches, request review). The
+> college-specific **CPL landing pages** described here remain the right path for the narrower
+> case: a student **already enrolled** at a college who simply needs **that** college to review
+> their CPL documentation. If a college isn't accepting requests through the portal or a landing
+> page, contact its **counseling office**. See
+> [How students get started](cpl-student-portal.md).
+
 ## Quick Summary
 
 Web portal allowing students to search for their college and request credit for prior learning. Provides a centralized entry point where students can "upload your documents and request a review" through college-specific landing pages.

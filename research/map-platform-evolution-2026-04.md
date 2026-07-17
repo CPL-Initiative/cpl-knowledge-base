@@ -75,10 +75,13 @@ From **single-purpose tool owned by one district** → **statewide infrastructur
 
 **Impact:** AI layer added to the Technology pillar without disrupting Culture or Policy. "AI as accelerant with faculty validation" pattern established.
 
-### 2026 — Student CPL Portal launch (projected May 2026)
+### 2026 — Student CPL Portal launch (live at creditforbeingyou.org)
 **Source:** [cpl-initiative-report-2026](../policy-and-funding/cpl-initiative-report-2026.md)
 
-**What Happened:** Student-facing MAP surface goes live. First time students directly touch the platform.
+**What Happened:** Student-facing MAP surface goes live in production at
+<https://creditforbeingyou.org>. First time students directly touch the platform — creating an
+account, building a CPL profile, and requesting review. See
+[How students get started](../playbooks/cpl-student-portal.md).
 
 **Impact:** Substrate now has a direct-to-student surface, closing the loop.
 

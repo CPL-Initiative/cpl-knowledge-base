@@ -48,12 +48,26 @@ For the current funding allocation and spend, see the [CPL Project Dashboard](ht
 
 ## Resource directory
 
+### For students — start here
+
+- **[CPL Student Portal — creditforbeingyou.org](https://creditforbeingyou.org)** — the free,
+  open-sign-up, student-facing front door to CPL, for prospective students and students at all
+  119 colleges. Create an account, add your prior learning in the CPL Builder, browse live
+  matches by college, and submit CPL requests for review. Full walkthrough:
+  [How students get started](cpl-student-portal.md).
+- **[Find CPL at your college](https://map.rccd.edu/cpllandingpages/)** — if you're already
+  enrolled and just need that college to review your documentation, use its CPL landing page.
+- If your college isn't accepting requests through the portal or a landing page yet, contact
+  that college's **counseling office**. Any questions: **map@rccd.edu**. *(CPL is never
+  guaranteed — each college makes the final decision on what credit to award.)*
+
 ### Core platforms and data
 
 - [MAP Initiative Website](https://map.rccd.edu/) — central hub for all CPL resources
+- [CPL Student Portal](https://creditforbeingyou.org) — the student-facing front door to CPL (create an account, build a CPL profile, browse matches, request review)
 - [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) — live data on students, units, savings, by college
 - [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) — workplan progress, activity status, multi-source rollup
-- [JST Upload Tool (Veterans)](https://veteransmapsearch.azurewebsites.net/default.aspx)
+- [JST Upload Tool (Veterans)](https://veteransmapsearch.azurewebsites.net/default.aspx) — being superseded by the CPL Student Portal and phased out over time
 
 ### Policy and legislation
 
