@@ -70,9 +70,10 @@ For anything else, email the MAP team at **[MAP@rccd.edu](mailto:MAP@rccd.edu)**
   they always apply.
 - **It's free and open.** No cost, open sign-up, available to prospective students and
   students at every California community college.
-- **Older tools are being consolidated into the portal.** The separate veterans' JST upload
-  tool is being superseded by the CPL Student Portal and will be phased out over time. The
-  per-college CPL landing pages remain available.
+- **JST upload is moving into the portal.** Veterans still upload their Joint Services
+  Transcript (JST) for CPL — now through the CPL Builder on the Student Portal, which is
+  replacing the separate standalone JST upload tool over time. The per-college CPL landing
+  pages remain available.
 
 ## Related
 

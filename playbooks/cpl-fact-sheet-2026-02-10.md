@@ -67,7 +67,7 @@ For the current funding allocation and spend, see the [CPL Project Dashboard](ht
 - [CPL Student Portal](https://creditforbeingyou.org) — the student-facing front door to CPL (create an account, build a CPL profile, browse matches, request review)
 - [MAP CPL Insights Dashboard](https://cpldashboardcccco.azurewebsites.net/insights/dashboard) — live data on students, units, savings, by college
 - [CPL Project Dashboard](https://cpl-initiative.github.io/cpl-project-tracker/) — workplan progress, activity status, multi-source rollup
-- [JST Upload Tool (Veterans)](https://veteransmapsearch.azurewebsites.net/default.aspx) — being superseded by the CPL Student Portal and phased out over time
+- [JST Upload Tool (Veterans)](https://veteransmapsearch.azurewebsites.net/default.aspx) — the standalone JST upload site; JST upload now happens in the CPL Builder on the CPL Student Portal, and this separate tool is being retired over time
 
 ### Policy and legislation
 
