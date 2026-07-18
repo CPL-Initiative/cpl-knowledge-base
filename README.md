@@ -21,7 +21,7 @@ at RCCD on behalf of the California Community Colleges Chancellor's Office.
 See [`using-with-ai-assistants.md`](using-with-ai-assistants.md) for the full guide. Quick version:
 
 - Paste a folder URL or file URL into chat
-- The four files in [`methodology/`](methodology/) are the highest-value priming docs
+- The four framework docs in [`methodology/`](methodology/) — Three-Pillar Initiative Design, Infrastructure-First Scaling, Sprint-Based Execution, Evidence-First Advocacy — are the highest-value priming docs
 - For live metrics, point the assistant at the dashboards in [`current-status/`](current-status/README.md), not at files in this repo
 
 ## Where to find …
