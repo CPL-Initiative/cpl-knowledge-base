@@ -170,7 +170,7 @@ writing any curated files.
 
 The v1 inclusion list above was the bulk first pass. The **same human-gated
 pipeline** handles ongoing, one-note-at-a-time promotion — including a
-`cpl-project-tracker` `/checkpoint` (Rule 8) `docs/kb-notes/` note that has synced
+`cpl-project-tracker` `/checkpoint` (Rule 9) `docs/kb-notes/` note that has synced
 into the vault, or a new `05-knowledge/` consolidated insight:
 
 1. **Confirm public-eligibility.** The note must carry no held / PII / pre-release
