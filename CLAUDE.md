@@ -1,4 +1,4 @@
-# CPL Project Tracker — Claude Code instructions
+# CPL Knowledge Base — Claude Code instructions
 
 ## CPL Knowledge Base
 
@@ -16,10 +16,11 @@ When the conversation touches any of:
 - Repo: https://github.com/CPL-Initiative/cpl-knowledge-base
 - Raw base: https://raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/
 
-Use WebFetch against the raw base URL to pull only the specific file(s)
-needed — do not mirror the whole repo into context. The four files under
-`methodology/` are the highest-value priming docs when broader context
-is needed.
+Read from the local clone when one is on disk (a session attached to this
+repo has it); otherwise use WebFetch against the raw base URL to pull only
+the specific file(s) needed — do not mirror the whole repo into context. The
+four files under `methodology/` are the highest-value priming docs when
+broader context is needed.
 
 The canonical version of these instructions lives at:
 https://raw.githubusercontent.com/CPL-Initiative/cpl-knowledge-base/main/claude/CLAUDE.md
@@ -63,7 +64,7 @@ This public KB changes **only** through the `CURATION.md` pipeline: the private
 `CPLBrain` vault marks a file in `audit/curation-manifest.tsv`,
 `tools/curation_assistant.py` runs the mechanical transforms + a sensitivity
 scan, and a **human opens and merges a draft PR** — that review *is* the
-sensitivity audit. The `cpl-project-tracker` `/checkpoint` (Rule 8) does **not**
+sensitivity audit. The `cpl-project-tracker` `/checkpoint` (Rule 9) does **not**
 write here; its learnings land in the tracker's `docs/kb-notes/`, which sync into
 Sam's Obsidian vault + the `CPLBrain` repo. Nothing reaches this repo
 automatically — see the "Promoting a checkpoint or vault note" section of
