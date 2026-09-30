@@ -63,6 +63,7 @@ export const FALLBACK_TREE = [
   "playbooks/map-cpl-implementation-guide.md", "playbooks/map-cpl-landing-pages.md",
   "playbooks/map-cpl-stories-page.md", "playbooks/map-exhibit-analysis.md",
   "playbooks/map-ui-brand-standards.md", "playbooks/no-cid-courses-crosswalk.md",
+  "playbooks/writing-about-cpl-in-the-chancellors-office-style.md",
   "current-status/README.md",
   "glossary.md", "using-with-ai-assistants.md",
 ];
