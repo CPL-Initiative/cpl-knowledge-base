@@ -17,8 +17,28 @@ const STATEWIDE_FALLBACK = {
   SW_STUDENTS: "45,838", SW_MILITARY: "23,970", SW_WORKFORCE: "21,943",
   SW_APPRENTICE: "739", SW_ELIGIBLE_UNITS: "207k", SW_TRANSCRIBED_UNITS: "99k",
   SW_SAVINGS: "$291M", SW_20Y_IMPACT: "$1.17B", SW_ACTIVE_COLLEGES: "98",
-  SW_TOTAL_COLLEGES: "115", SW_LEADING_COLLEGES: "14",
+  SW_TOTAL_COLLEGES: "116", SW_LEADING_COLLEGES: "14",
 };
+
+// Who the CPL Initiative serves (Sam, CPL Initiative open-asks sheets 33-34,
+// 2026-10-04): "California's 116 community colleges", the 115 credit colleges
+// plus Calbright. MAP's datasets also list Cal State LA, the first CSU campus on
+// MAP, so the letters count community colleges only. The tracker's
+// kb/non_ccc_institutions.json is the list this copies.
+const CCC_SYSTEM_COLLEGES = "116";
+const NON_CCC = ["California State University Los Angeles", "California State University, Los Angeles",
+                 "Cal State LA", "CSU Los Angeles", "CSULA"];
+const normName = (s) => String(s ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// Community colleges in the named tiers of MAP's datasets, or null without tiers.
+function cccInTiers(j, tiers) {
+  if (!j || !j.tiers) return null;
+  const outside = new Set(NON_CCC.map(normName));
+  let n = 0;
+  for (const t of tiers) for (const c of (j.tiers[t]?.colleges ?? [])) {
+    if (c?.college && !outside.has(normName(c.college))) n++;
+  }
+  return n;
+}
 
 async function fetchStatewide() {
   try {
@@ -38,9 +58,9 @@ async function fetchStatewide() {
       SW_TRANSCRIBED_UNITS: find("TRANSCRIBED UNITS").value || STATEWIDE_FALLBACK.SW_TRANSCRIBED_UNITS,
       SW_SAVINGS:           find("SAVINGS").value           || STATEWIDE_FALLBACK.SW_SAVINGS,
       SW_20Y_IMPACT:        find("20-YEAR IMPACT").value    || STATEWIDE_FALLBACK.SW_20Y_IMPACT,
-      SW_ACTIVE_COLLEGES:   String(j.active_college_count   ?? STATEWIDE_FALLBACK.SW_ACTIVE_COLLEGES),
-      SW_TOTAL_COLLEGES:    String(j.college_count          ?? STATEWIDE_FALLBACK.SW_TOTAL_COLLEGES),
-      SW_LEADING_COLLEGES:  String(j.tiers?.leading?.count  ?? STATEWIDE_FALLBACK.SW_LEADING_COLLEGES),
+      SW_ACTIVE_COLLEGES:   String(cccInTiers(j, ["leading", "advancing"]) ?? j.active_college_count ?? STATEWIDE_FALLBACK.SW_ACTIVE_COLLEGES),
+      SW_TOTAL_COLLEGES:    CCC_SYSTEM_COLLEGES,
+      SW_LEADING_COLLEGES:  String(cccInTiers(j, ["leading"]) ?? j.tiers?.leading?.count ?? STATEWIDE_FALLBACK.SW_LEADING_COLLEGES),
     };
   } catch {
     return STATEWIDE_FALLBACK;
