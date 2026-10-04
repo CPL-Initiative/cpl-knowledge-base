@@ -50,6 +50,26 @@ type Metrics = Record<string, string>;
 type Blocks  = Record<string, string>;
 type Scope   = "individual" | "joint" | "statewide" | "all";
 
+// Who the CPL Initiative serves (Sam, CPL Initiative open-asks sheets 33-34,
+// 2026-10-04): "California's 116 community colleges", the 115 credit colleges
+// plus Calbright. MAP's datasets also list Cal State LA, the first CSU campus on
+// MAP, so the letters count community colleges only. The tracker's
+// kb/non_ccc_institutions.json is the list this copies.
+const CCC_SYSTEM_COLLEGES = "116";
+const NON_CCC = ["California State University Los Angeles", "California State University, Los Angeles",
+                 "Cal State LA", "CSU Los Angeles", "CSULA"];
+const normName = (s: unknown) => String(s ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// Community colleges in the named tiers of MAP's datasets, or null without tiers.
+function cccInTiers(j: any, tiers: string[]): number | null {
+  if (!j || !j.tiers) return null;
+  const outside = new Set(NON_CCC.map(normName));
+  let n = 0;
+  for (const t of tiers) for (const c of (j.tiers[t]?.colleges ?? [])) {
+    if (c?.college && !outside.has(normName(c.college))) n++;
+  }
+  return n;
+}
+
 async function fetchMetrics(): Promise<Metrics> {
   try {
     const res = await fetch(METRICS_URL, { headers: { "cache-control": "no-cache" }});
@@ -69,9 +89,9 @@ async function fetchMetrics(): Promise<Metrics> {
       SW_TRANSCRIBED_UNITS: find("TRANSCRIBED UNITS").value ?? "",
       SW_SAVINGS:           find("SAVINGS").value ?? "",
       SW_20Y_IMPACT:        find("20-YEAR IMPACT").value ?? "",
-      SW_ACTIVE_COLLEGES:   String(json.active_college_count ?? ""),
-      SW_TOTAL_COLLEGES:    String(json.college_count ?? ""),
-      SW_LEADING_COLLEGES:  String(json.tiers?.leading?.count ?? ""),
+      SW_ACTIVE_COLLEGES:   String(cccInTiers(json, ["leading", "advancing"]) ?? json.active_college_count ?? ""),
+      SW_TOTAL_COLLEGES:    CCC_SYSTEM_COLLEGES,
+      SW_LEADING_COLLEGES:  String(cccInTiers(json, ["leading"]) ?? json.tiers?.leading?.count ?? ""),
     };
   } catch (e) {
     console.error("metrics fallback:", e);
@@ -79,7 +99,7 @@ async function fetchMetrics(): Promise<Metrics> {
       SW_STUDENTS: "45,838", SW_MILITARY: "23,970", SW_WORKFORCE: "21,943",
       SW_APPRENTICE: "739", SW_ELIGIBLE_UNITS: "207k", SW_TRANSCRIBED_UNITS: "99k",
       SW_SAVINGS: "$291M", SW_20Y_IMPACT: "$1.17B", SW_ACTIVE_COLLEGES: "98",
-      SW_TOTAL_COLLEGES: "115", SW_LEADING_COLLEGES: "14",
+      SW_TOTAL_COLLEGES: "116", SW_LEADING_COLLEGES: "14",
     };
   }
 }
