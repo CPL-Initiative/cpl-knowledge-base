@@ -40,7 +40,7 @@ See [`using-with-ai-assistants.md`](using-with-ai-assistants.md) for the full gu
 overview/             # Mission, scope, current status of each project
 methodology/          # Reusable frameworks and playbooks
 current-status/       # Pointers to live dashboards (no static metrics files — see CURATION.md)
-policy-and-funding/   # AB 123, ESS 25-82, ACCJC alignment, Chancellor's call to action
+policy-and-funding/   # AB 123, ESS 25-82, ACCJC alignment, Chancellor's call to action, the Fifty Percent Law
 research/             # Beacon Economics, Vision 2030, scaling reports, master plan
 playbooks/            # Implementation guides, sample roles, surveys, outreach
 glossary.md           # CPL, JST, MAP, AB 123, BAS-ASIO, MIS, ESS-25-82, etc.
